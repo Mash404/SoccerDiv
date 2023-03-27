@@ -1,0 +1,95 @@
+﻿@model SoccerDiv.Models.Venue
+
+@{
+    ViewBag.Title = "AddVenue";
+    var success = ViewBag.Success;
+    var failed = ViewBag.Failed;
+}
+
+<link href="~/Content/venue.css" rel="stylesheet" />
+<link href="~/Content/adminbutton.css" rel="stylesheet" />
+
+<div class="containerX">
+    <a class="card1" href="@Url.Action("AdminView", "Admins")">
+        <h3>Back To Home</h3>
+        <div class="go-corner">
+            <div class="go-arrow">
+                →
+            </div>
+        </div>
+    </a>
+    <a class="card1" href="@Url.Action("Venue", "Venues")">
+        <h3>See All Venue</h3>
+        <div class="go-corner">
+            <div class="go-arrow">
+                →
+            </div>
+        </div>
+    </a>
+</div>
+
+
+
+
+
+@using (Html.BeginForm("AddVenue", "Venues", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="signup__container">
+        <div class="container__child signup__thumbnail">
+            <div class="thumbnail__content text-center">
+                <h1 class="heading--primary">Welcome to MaxSoccer</h1>
+                <h2 class="heading--secondary">Add New Venue</h2>
+                @if (success != null)
+                {
+                    <h2 style="color:#85F12B;">
+                        @success
+                    </h2>
+                }
+                else
+                {
+                    <h2 style="color:#85F12B;">
+                        @failed
+                    </h2>
+                }
+            </div>
+        </div>
+        <div class="container__child signup__form">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="form-group">
+                <label>Venue Name</label>
+                @Html.EditorFor(model => model.Venue_Name, new { htmlAttributes = new { @class = "form-control", @placeholder = "Venue Name" } })
+                @Html.ValidationMessageFor(model => model.Venue_Name, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label>Capacity</label>
+                @Html.EditorFor(model => model.Venue_Capacity, new { htmlAttributes = new { @class = "form-control", @placeholder = "Capacity" } })
+                @Html.ValidationMessageFor(model => model.Venue_Capacity, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label>Location</label>
+                @Html.EditorFor(model => model.Venue_Location, new { htmlAttributes = new { @class = "form-control", @placeholder = "Venue Location" } })
+                @Html.ValidationMessageFor(model => model.Venue_Location, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label>Profile Pic</label>
+                <input type="file" name="VenueImageFile" required />
+            </div>
+            <div class="m-t-lg">
+                <ul class="list-inline text-center">
+                    <li>
+                        <input type="submit" value="Add Venue" class="btn btn--form" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

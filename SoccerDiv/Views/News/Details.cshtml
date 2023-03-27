@@ -1,0 +1,24 @@
+﻿@model SoccerDiv.Models.News
+
+@{
+    ViewBag.Title = "Details";
+}
+<link href="~/Content/newsdetails.css" rel="stylesheet" />
+
+<article class="cardView newsCardView">
+    <a href="#">
+        <h3 class="cardTitle" aria-label="news article title">@Html.DisplayFor(model => model.News_Title)</h3>
+        @if (Model.News_Image != null)
+        {
+            var imgPath = Model.News_Image;
+            <img alt="cta_visit" src="@Url.Content(imgPath)" />
+        }
+    <span class="byLine" aria-label="author and date">
+        @Html.DisplayFor(model => model.Customer.Customer_Name) 
+    </span>
+    <span class="cardCategory" aria-label="news category">@Html.DisplayNameFor(model => model.News_Date), @Html.DisplayFor(model => model.NewsTime)</span>
+        <div class="cardDetails" aria-label="news details">
+            <p>@Html.DisplayFor(model => model.News_Dexcription)</p>
+        </div>
+    </a>
+</article>

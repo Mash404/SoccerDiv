@@ -1,0 +1,509 @@
+﻿
+@{
+    ViewBag.Title = "AdminView";
+}
+
+<link href="~/Content/admin.css" rel="stylesheet" />
+
+<div class="flip-card-containerA" style="--hue: 220">
+    <div class="flip-cardA">
+
+        <div class="card-frontA">
+            <figure>
+                <div class="img-bgA"></div>
+                <img src="~/Content/logo/stadiumm.jpg" />
+                <figcaption>Sports</figcaption>
+            </figure>
+
+            <ul>
+                <li>Add New Sports</li>
+                <li>All Sports Details</li>
+                <li>Edit Sports Details</li>
+                <li>Delete Sports</li>
+            </ul>
+        </div>
+
+        <div class="card-backA">
+            <figure>
+                <div class="img-bgA"></div>
+                <img src="~/Content/logo/stadium.jpg" />
+            </figure>
+
+            <a href="@Url.Action("SportsView", "Sports")">Sports</a>
+
+            <div class="design-containerA">
+                <span class="designA design--1"></span>
+                <span class="designA design--2"></span>
+                <span class="designA design--3"></span>
+                <span class="designA design--4"></span>
+                <span class="designA design--5"></span>
+                <span class="designA design--6"></span>
+                <span class="designA design--7"></span>
+                <span class="designA design--8"></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Team Card -->
+
+<div class="flip-card-containerA" style="--hue: 170">
+    <div class="flip-cardA">
+
+        <div class="card-frontA">
+            <figure>
+                <div class="img-bgA"></div>
+                <img src="~/Content/logo/a.jpg" />
+                <figcaption>Sports Team</figcaption>
+            </figure>
+
+            <ul>
+                <li>Add New Team</li>
+                <li>Team Details</li>
+                <li>Edit Team Details</li>
+                <li>Delete Team</li>
+            </ul>
+        </div>
+
+        <div class="card-backA">
+            <figure>
+                <div class="img-bgA"></div>
+                <img src="~/Content/logo/d.jpg" />
+            </figure>
+
+            <a href="@Url.Action("TeamView", "Teams")">Team</a>
+
+            <div class="design-containerA">
+                <span class="designA design--1"></span>
+                <span class="designA design--2"></span>
+                <span class="designA design--3"></span>
+                <span class="designA design--4"></span>
+                <span class="designA design--5"></span>
+                <span class="designA design--6"></span>
+                <span class="designA design--7"></span>
+                <span class="designA design--8"></span>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="flip-card-containerA" style="--hue: 350">
+    <div class="flip-cardA">
+
+        <div class="card-frontA">
+            <figure>
+                <div class="img-bgA"></div>
+                <img src="~/Content/logo/f.jpg" />
+                <figcaption>Sports Events</figcaption>
+            </figure>
+
+            <ul>
+                <li>Add New Events</li>
+                <li>Event Details</li>
+                <li>Update Event Delails</li>
+                <li>Control Event</li>
+            </ul>
+        </div>
+
+        <div class="card-backA">
+            <!-- only if the image is necessary -->
+            <figure>
+                <div class="img-bgA"></div>
+                <img src="~/Content/logo/d.jpg" />
+            </figure>
+
+            <a href="@Url.Action("EventList", "Events")">Event</a>
+
+            <!-- can add svg here and remove these eight spans -->
+            <div class="design-containerA">
+                <span class="designA design--1"></span>
+                <span class="designA design--2"></span>
+                <span class="designA design--3"></span>
+                <span class="designA design--4"></span>
+                <span class="designA design--5"></span>
+                <span class="designA design--6"></span>
+                <span class="designA design--7"></span>
+                <span class="designA design--8"></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="flip-card-containerA" style="--hue: 350">
+    <div class="flip-cardA">
+
+        <div class="card-frontA">
+            <figure>
+                <div class="img-bgA"></div>
+                <img src="~/Content/logo/p.jpg" />
+                <figcaption>Sports Tournaments</figcaption>
+            </figure>
+
+            <ul>
+                <li>Add New Tournaments</li>
+                <li>Remove Tournaments</li>
+                <li>Update Tournaments Details</li>
+                <li>Manage Tournament</li>
+            </ul>
+        </div>
+
+        <div class="card-backA">
+            <!-- only if the image is necessary -->
+            <figure>
+                <div class="img-bgA"></div>
+                <img src="~/Content/logo/o.jpg" />
+            </figure>
+
+            <a href="@Url.Action("Tournament", "Tournamnets")">Tournaments</a>
+
+            <!-- can add svg here and remove these eight spans -->
+            <div class="design-containerA">
+                <span class="designA design--1"></span>
+                <span class="designA design--2"></span>
+                <span class="designA design--3"></span>
+                <span class="designA design--4"></span>
+                <span class="designA design--5"></span>
+                <span class="designA design--6"></span>
+                <span class="designA design--7"></span>
+                <span class="designA design--8"></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="flip-card-containerA" style="--hue: 350">
+    <div class="flip-cardA">
+
+        <div class="card-frontA">
+            <figure>
+                <div class="img-bgA"></div>
+                <img src="~/Content/logo/stadiumm.jpg" />
+                <figcaption>Sports Venues</figcaption>
+            </figure>
+
+            <ul>
+                <li>Add New Venue</li>
+                <li>Update Venue</li>
+                <li>Venue Details</li>
+                <li>Remove Venue</li>
+            </ul>
+        </div>
+
+        <div class="card-backA">
+            <!-- only if the image is necessary -->
+            <figure>
+                <div class="img-bgA"></div>
+                <img src="~/Content/logo/p.jpg" />
+            </figure>
+
+            <a href="@Url.Action("Venue", "Venues")">Venues</a>
+
+            <!-- can add svg here and remove these eight spans -->
+            <div class="design-containerA">
+                <span class="designA design--1"></span>
+                <span class="designA design--2"></span>
+                <span class="designA design--3"></span>
+                <span class="designA design--4"></span>
+                <span class="designA design--5"></span>
+                <span class="designA design--6"></span>
+                <span class="designA design--7"></span>
+                <span class="designA design--8"></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="flip-card-containerA" style="--hue: 350">
+    <div class="flip-cardA">
+
+        <div class="card-frontA">
+            <figure>
+                <div class="img-bgA"></div>
+                <img src="~/Content/logo/o.jpg" />
+                <figcaption>Customer</figcaption>
+            </figure>
+
+            <ul>
+                <li>Customer Details</li>
+                <li>Notify Customer</li>
+                <li>Contact Customer</li>
+                <li>Remove Customer</li>
+            </ul>
+        </div>
+
+        <div class="card-backA">
+            <!-- only if the image is necessary -->
+            <figure>
+                <div class="img-bgA"></div>
+                <img src="~/Content/logo/a.jpg" />
+            </figure>
+
+            <a href="@Url.Action("CustomerList", "Customers")">Customer</a>
+
+            <!-- can add svg here and remove these eight spans -->
+            <div class="design-containerA">
+                <span class="designA design--1"></span>
+                <span class="designA design--2"></span>
+                <span class="designA design--3"></span>
+                <span class="designA design--4"></span>
+                <span class="designA design--5"></span>
+                <span class="designA design--6"></span>
+                <span class="designA design--7"></span>
+                <span class="designA design--8"></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="flip-card-containerA" style="--hue: 350">
+    <div class="flip-cardA">
+
+        <div class="card-frontA">
+            <figure>
+                <div class="img-bgA"></div>
+                <img src="~/Content/logo/e.jpg" />
+                <figcaption>Admin</figcaption>
+            </figure>
+
+            <ul>
+                <li>Add New Admins</li>
+                <li>Admin Details</li>
+                <li>Edit Admin's Information</li>
+                <li>Remove Admin</li>
+            </ul>
+        </div>
+
+        <div class="card-backA">
+            <!-- only if the image is necessary -->
+            <figure>
+                <div class="img-bgA"></div>
+                <img src="~/Content/logo/o.jpg" />
+            </figure>
+
+            <a href="@Url.Action("AdminList", "Admins")">Admin</a>
+
+            <!-- can add svg here and remove these eight spans -->
+            <div class="design-containerA">
+                <span class="designA design--1"></span>
+                <span class="designA design--2"></span>
+                <span class="designA design--3"></span>
+                <span class="designA design--4"></span>
+                <span class="designA design--5"></span>
+                <span class="designA design--6"></span>
+                <span class="designA design--7"></span>
+                <span class="designA design--8"></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="flip-card-containerA" style="--hue: 350">
+    <div class="flip-cardA">
+
+        <div class="card-frontA">
+            <figure>
+                <div class="img-bgA"></div>
+                <img src="~/Content/logo/a.jpg" />
+                <figcaption>Sports News</figcaption>
+            </figure>
+
+            <ul>
+                <li>Add News</li>
+                <li>Control Customer News</li>
+                <li>News Details</li>
+                <li>Remove News</li>
+            </ul>
+        </div>
+
+        <div class="card-backA">
+            <!-- only if the image is necessary -->
+            <figure>
+                <div class="img-bgA"></div>
+                <img src="~/Content/logo/o.jpg" />
+            </figure>
+
+            <a href="@Url.Action("NewsList", "News")">Sports News</a>
+
+            <!-- can add svg here and remove these eight spans -->
+            <div class="design-containerA">
+                <span class="designA design--1"></span>
+                <span class="designA design--2"></span>
+                <span class="designA design--3"></span>
+                <span class="designA design--4"></span>
+                <span class="designA design--5"></span>
+                <span class="designA design--6"></span>
+                <span class="designA design--7"></span>
+                <span class="designA design--8"></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="flip-card-containerA" style="--hue: 350">
+    <div class="flip-cardA">
+
+        <div class="card-frontA">
+            <figure>
+                <div class="img-bgA"></div>
+                <img src="~/Content/logo/p.jpg" />
+                <figcaption>Player</figcaption>
+            </figure>
+
+            <ul>
+                <li>Add New Player</li>
+                <li>Update Player's' Information</li>
+                <li>Player Details</li>
+                <li>Remove Player</li>
+            </ul>
+        </div>
+
+        <div class="card-backA">
+            <!-- only if the image is necessary -->
+            <figure>
+                <div class="img-bgA"></div>
+                <img src="~/Content/logo/d.jpg" />
+            </figure>
+
+            <a href="@Url.Action("PlayerList", "Players")">Player</a>
+
+            <!-- can add svg here and remove these eight spans -->
+            <div class="design-containerA">
+                <span class="designA design--1"></span>
+                <span class="designA design--2"></span>
+                <span class="designA design--3"></span>
+                <span class="designA design--4"></span>
+                <span class="designA design--5"></span>
+                <span class="designA design--6"></span>
+                <span class="designA design--7"></span>
+                <span class="designA design--8"></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="flip-card-containerA" style="--hue: 350">
+    <div class="flip-cardA">
+
+        <div class="card-frontA">
+            <figure>
+                <div class="img-bgA"></div>
+                <img src="~/Content/logo/a.jpg" />
+                <figcaption>Contact Us</figcaption>
+            </figure>
+
+            <ul>
+                <li>Contact Us Details</li>
+                <li>Customer Review</li>
+                <li>Customer Feedback</li>
+                <li>Control Contact Us</li>
+            </ul>
+        </div>
+
+        <div class="card-backA">
+            <!-- only if the image is necessary -->
+            <figure>
+                <div class="img-bgA"></div>
+                <img src="~/Content/logo/o.jpg" />
+            </figure>
+
+            <a href="@Url.Action("ConatctList", "Contacts")">Contact</a>
+
+            <!-- can add svg here and remove these eight spans -->
+            <div class="design-containerA">
+                <span class="designA design--1"></span>
+                <span class="designA design--2"></span>
+                <span class="designA design--3"></span>
+                <span class="designA design--4"></span>
+                <span class="designA design--5"></span>
+                <span class="designA design--6"></span>
+                <span class="designA design--7"></span>
+                <span class="designA design--8"></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="flip-card-containerA" style="--hue: 350">
+    <div class="flip-cardA">
+
+        <div class="card-frontA">
+            <figure>
+                <div class="img-bgA"></div>
+                <img src="~/Content/logo/a.jpg" />
+                <figcaption>Premium</figcaption>
+            </figure>
+
+            <ul>
+                <li>Live Broadcasting</li>
+                <li>Update Broadcasting</li>
+                <li>Control Premium Section</li>
+            </ul>
+        </div>
+
+        <div class="card-backA">
+            <!-- only if the image is necessary -->
+            <figure>
+                <div class="img-bgA"></div>
+                <img src="~/Content/logo/o.jpg" />
+            </figure>
+
+            <a href="#">Premium</a>
+
+            <!-- can add svg here and remove these eight spans -->
+            <div class="design-containerA">
+                <span class="designA design--1"></span>
+                <span class="designA design--2"></span>
+                <span class="designA design--3"></span>
+                <span class="designA design--4"></span>
+                <span class="designA design--5"></span>
+                <span class="designA design--6"></span>
+                <span class="designA design--7"></span>
+                <span class="designA design--8"></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="flip-card-containerA" style="--hue: 220">
+    <div class="flip-cardA">
+
+        <div class="card-frontA">
+            <figure>
+                <div class="img-bgA"></div>
+                <img src="~/Content/logo/stadiumm.jpg" />
+                <figcaption>Coach</figcaption>
+            </figure>
+
+            <ul>
+                <li>Add New Coach</li>
+                <li>All Coach Details</li>
+                <li>Edit Coach Details</li>
+                <li>Delete Coaches</li>
+            </ul>
+        </div>
+
+        <div class="card-backA">
+            <figure>
+                <div class="img-bgA"></div>
+                <img src="~/Content/logo/stadium.jpg" />
+            </figure>
+
+            <a href="@Url.Action("CoachesList", "Coaches")">Sports</a>
+
+            <div class="design-containerA">
+                <span class="designA design--1"></span>
+                <span class="designA design--2"></span>
+                <span class="designA design--3"></span>
+                <span class="designA design--4"></span>
+                <span class="designA design--5"></span>
+                <span class="designA design--6"></span>
+                <span class="designA design--7"></span>
+                <span class="designA design--8"></span>
+            </div>
+        </div>
+    </div>
+</div>

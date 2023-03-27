@@ -1,0 +1,31 @@
+.searchM {
+    width: 100%;
+    position: relative;
+    display: flex;
+    padding-left: 14px;
+}
+
+.searchTermM {
+    width: 40%;
+    border: 2px solid #F8699D;
+    background: #26272b;
+    border-right: none;
+    padding: 5px;
+    height: 40px;
+    border-radius: 10px 0 0 10px;
+    color: #26272b;
+    font-weight: bold;
+    font-size: 18px
+}
+
+.searchButtonM {
+    width: 38px;
+    height: 40px;
+    border: 2px solid #F8699D;
+    background: #F8699D;
+    text-align: center;
+    color: #fff;
+    border-radius: 0 10px 10px 0;
+    cursor: pointer;
+    font-size: 22px;
+}

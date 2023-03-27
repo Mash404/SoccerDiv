@@ -1,0 +1,61 @@
+﻿@model SoccerDiv.Models.Player
+
+@{
+    ViewBag.Title = "Details";
+}
+<link href="~/Content/playerprofile.css" rel="stylesheet" />
+
+<div class="container" style="margin-top:40px;">
+    <div class="jumbotron">
+        <div class="row text-center">
+            <div class="col-lg-4">
+                <div class="text-center">
+                    <div style="overflow:hidden; border-radius:100%;">
+                        @if (Model.Player_Image != null)
+                        {
+                            var imgPath = Model.Player_Image;
+                            <img src="@Url.Content(imgPath)" class="img-fluid">
+                        }
+                        else
+                        {
+                            <img src="~/Content/Players/football-player.png" class="img-fluid"/>
+                        }
+
+                    </div>
+                </div>
+                <h2 class="name" style="font-weight: bold; color: #0A474F;">@Html.DisplayFor(model => model.Player_Name)</h2>
+                <h4 style="font-weight: bold; color: #0A474F;">@Html.DisplayFor(model => model.Player_Position)</h4>
+            </div>
+            <div class="col-lg-8 ">
+                <table class="table" style="margin-top:60px;">
+                    <tbody>
+                        <tr>
+                            <th style="font-weight: bold; color: #0A474F;">Age</th>
+                            <td style="font-weight: bold; color: #0A474F;">@Html.DisplayFor(model => model.Player_Age) yrs old</td>
+                        </tr>
+                        <tr>
+                            <th style="font-weight: bold; color: #0A474F;">Rating</th>
+                            <td style="font-weight: bold; color: #0A474F;">@Html.DisplayFor(model => model.Player_Rating)</td>
+                        </tr>
+                        <tr>
+                            <th style="font-weight: bold; color: #0A474F;">Ranking</th>
+                            <td style="font-weight: bold; color: #0A474F;">@Html.DisplayFor(model => model.Player_Ranking)</td>
+                        </tr>
+                        <tr>
+                            <th style="font-weight: bold; color: #0A474F;">Nationality</th>
+                            <td style="font-weight: bold; color: #0A474F;">@Html.DisplayFor(model => model.Player_Nationality)</td>
+                        </tr>
+                        <tr>
+                            <th style="font-weight: bold; color: #0A474F;">@Html.DisplayFor(model => model.Sport.Sports_Name)</th>
+                            <td style="font-weight: bold; color: #0A474F;">@Html.DisplayFor(model => model.Team.Team_Name)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col-lg-12">
+            </div>
+        </div>
+    </div>
+</div>

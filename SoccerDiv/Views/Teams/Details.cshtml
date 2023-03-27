@@ -1,0 +1,71 @@
+﻿@model SoccerDiv.Models.Team
+
+@{
+    ViewBag.Title = "Details";
+}
+<link href="~/Content/teamdetails.css" rel="stylesheet" />
+<h2>Details</h2>
+
+<div>
+    <h4>Team</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Team_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Team_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Team_Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Team_Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Team_Rating)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Team_Rating)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Team_Ranking)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Team_Ranking)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Team_Logo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Team_Logo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Team_Country)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Team_Country)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sport.Sports_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sport.Sports_Name)
+        </dd>
+
+    </dl>
+</div>
+

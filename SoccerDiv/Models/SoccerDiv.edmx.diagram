@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="dab370d5176b45c692982dac879a17fd" Name="Diagram1" ZoomLevel="92">
+        <EntityTypeShape EntityType="SoccerDivModel.Admin" Width="1.5" PointX="9.625" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoccerDivModel.Coach" Width="1.5" PointX="8.375" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoccerDivModel.Contact" Width="1.5" PointX="7.625" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoccerDivModel.Customer" Width="1.5" PointX="5" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoccerDivModel.Event" Width="1.5" PointX="6.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoccerDivModel.News" Width="1.5" PointX="2.875" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoccerDivModel.Player" Width="1.5" PointX="10.625" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoccerDivModel.Sport" Width="1.5" PointX="1.375" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoccerDivModel.Team" Width="1.5" PointX="3.25" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoccerDivModel.Tournamnet" Width="1.5" PointX="1" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SoccerDivModel.Venue" Width="1.5" PointX="5" PointY="11.625" IsExpanded="true" />
+        <AssociationConnector Association="SoccerDivModel.FK__Coach__Sports_ID__2A4B4B5E" ManuallyRouted="false" />
+        <AssociationConnector Association="SoccerDivModel.FK__Coach__Team_ID__2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="SoccerDivModel.FK__Customer__Team_I__164452B1" ManuallyRouted="false" />
+        <AssociationConnector Association="SoccerDivModel.FK__News__Customer_I__300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="SoccerDivModel.FK__Event__First_Tea__239E4DCF" ManuallyRouted="false" />
+        <AssociationConnector Association="SoccerDivModel.FK__Event__Second_Te__24927208" ManuallyRouted="false" />
+        <AssociationConnector Association="SoccerDivModel.FK__Event__Sports_ID__21B6055D" ManuallyRouted="false" />
+        <AssociationConnector Association="SoccerDivModel.FK__Event__Tournamen__22AA2996" ManuallyRouted="false" />
+        <AssociationConnector Association="SoccerDivModel.FK__Event__Venue_ID__25869641" ManuallyRouted="false" />
+        <AssociationConnector Association="SoccerDivModel.FK__Player__Sports_I__1920BF5C" ManuallyRouted="false" />
+        <AssociationConnector Association="SoccerDivModel.FK__Player__Team_ID__1A14E395" ManuallyRouted="false" />
+        <AssociationConnector Association="SoccerDivModel.FK__Team__Sports_ID__1273C1CD" ManuallyRouted="false" />
+        <AssociationConnector Association="SoccerDivModel.FK__Tournamne__Sport__1CF15040" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

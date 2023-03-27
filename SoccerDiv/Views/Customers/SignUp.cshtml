@@ -1,0 +1,89 @@
+﻿@model SoccerDiv.Models.Customer
+
+@{
+    ViewBag.Title = "SignUp";
+    var success = ViewBag.Success;
+    var failed = ViewBag.failed;
+}
+
+<link href="~/Content/signup.css" rel="stylesheet" />
+<h2>SignUp</h2>
+
+
+@using (Html.BeginForm("SignUp", "Customers", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="signup__container">
+        <div class="container__child signup__thumbnail">
+            <div class="thumbnail__content text-center">
+                <h1 class="heading--primary">Welcome to MaxSoccer</h1>
+                <h2 class="heading--secondary">Are you ready to join?</h2>
+                @if (success != null)
+                {
+                    <h2 style="color:#85F12B;">
+                        @success
+                    </h2>
+                }
+                else
+                {
+                    <h2 style="color:#85F12B;">
+                        @failed
+                    </h2>
+                }
+            </div>
+        </div>
+        <div class="container__child signup__form">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <label>Favourite Team</label>
+                @Html.DropDownList("Team_ID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Team_ID, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label>Name</label>
+                @Html.EditorFor(model => model.Customer_Name, new { htmlAttributes = new { @class = "form-control", @placeholder = "Abdullah Al Mohaimen" } })
+                @Html.ValidationMessageFor(model => model.Customer_Name, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                @Html.EditorFor(model => model.Customer_Email, new { htmlAttributes = new { @class = "form-control", @placeholder = "abc@gmail.com" } })
+                @Html.ValidationMessageFor(model => model.Customer_Email, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label>Phone No</label>
+                @Html.EditorFor(model => model.Customer_PhoneNO, new { htmlAttributes = new { @class = "form-control", @placeholder = "+880" } })
+                @Html.ValidationMessageFor(model => model.Customer_PhoneNO, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label>Address</label>
+                @Html.EditorFor(model => model.Customer_Address, new { htmlAttributes = new { @class = "form-control", @placeholder = "Type your address" } })
+                @Html.ValidationMessageFor(model => model.Customer_Address, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                @Html.EditorFor(model => model.Customer_Password, new { htmlAttributes = new { @class = "form-control", @placeholder = "*******" } })
+                @Html.ValidationMessageFor(model => model.Customer_Password, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label>Profile Pic</label>
+                <input type="file" name="CustomerImageFile" required />
+            </div>
+            <div class="m-t-lg">
+                <ul class="list-inline text-center">
+                    <li>
+                        <input type="submit" value="Register" class="btn btn--form" />
+                    </li>
+                </ul>
+                <ul class="text-center">
+                    <li>
+                        Already a member! Please <a class="signup__link" href="@Url.Action("Login","Customers")">SignIn</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

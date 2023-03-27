@@ -1,0 +1,110 @@
+﻿@model SoccerDiv.Models.Event
+
+@{
+    ViewBag.Title = "AddEvents";
+    var success = ViewBag.Success;
+    var failed = ViewBag.Failed;
+}
+
+<link href="~/Content/events.css" rel="stylesheet" />
+<link href="~/Content/adminbutton.css" rel="stylesheet" />
+
+<div class="containerX">
+    <a class="card1" href="@Url.Action("AdminView", "Admins")">
+        <h3>Back To Home</h3>
+        <div class="go-corner">
+            <div class="go-arrow">
+                →
+            </div>
+        </div>
+    </a>
+    <a class="card1" href="@Url.Action("EventList", "Events")">
+        <h3>Show All Events</h3>
+        <div class="go-corner">
+            <div class="go-arrow">
+                →
+            </div>
+        </div>
+    </a>
+</div>
+
+
+@using (Html.BeginForm("AddEvents", "Events", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="signup__container">
+        <div class="container__child signup__thumbnail">
+            <div class="thumbnail__content text-center">
+                <h1 class="heading--primary">Welcome to MaxSoccer</h1>
+                <h2 class="heading--secondary">Are you ready to create an events?</h2>
+                @if (success != null)
+                {
+                    <h2 style="color:#85F12B;">
+                        @success
+                    </h2>
+                }
+                else
+                {
+                    <h2 style="color:#85F12B;">
+                        @failed
+                    </h2>
+                }
+            </div>
+        </div>
+        <div class="container__child signup__form">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <label>Sports</label>
+                @Html.DropDownList("Sports_ID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Sports_ID, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label>Tournament Name</label>
+                @Html.DropDownList("Tournament_ID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Tournament_ID, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label>First Team</label>
+                @Html.DropDownList("First_Team", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.First_Team, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label>Second Team</label>
+                @Html.DropDownList("Second_Team", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Second_Team, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label>Venue</label>
+                @Html.DropDownList("Venue_ID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Venue_ID, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label>Event Date</label>
+                @Html.EditorFor(model => model.Event_Date, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Event_Date, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label>Event Time</label>
+                @Html.EditorFor(model => model.Event_Time, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Event_Time, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label>Details</label>
+                @Html.EditorFor(model => model.Event_Details, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Event_Details, "", new { @class = "text-danger" })
+            </div>
+            <div class="m-t-lg">
+                <ul class="list-inline text-center">
+                    <li>
+                        <input type="submit" value="Add Events" class="btn btn--form" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

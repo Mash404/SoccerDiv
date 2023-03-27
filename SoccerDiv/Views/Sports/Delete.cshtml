@@ -1,0 +1,67 @@
+﻿@model SoccerDiv.Models.Sport
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<link href="~/Content/adminbutton.css" rel="stylesheet" />
+
+<div class="containerX">
+    <a class="card1" href="@Url.Action("AdminView", "Admins")">
+        <h3>Back To Home</h3>
+        <div class="go-corner">
+            <div class="go-arrow">
+                →
+            </div>
+        </div>
+    </a>
+    <a class="card1" href="@Url.Action("SportsView", "Sports")">
+        <h3>Show All Sports</h3>
+        <div class="go-corner">
+            <div class="go-arrow">
+                →
+            </div>
+        </div>
+    </a>
+</div>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Sport</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Sports_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sports_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sports_Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sports_Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sports_Image)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sports_Image)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" />
+        </div>
+    }
+</div>

@@ -1,0 +1,59 @@
+﻿@model IEnumerable<SoccerDiv.Models.Event>
+
+@{
+    ViewBag.Title = "Hockey";
+}
+<link href="~/Content/eventlist.css" rel="stylesheet" />
+<h2>Hockey</h2>
+
+<section class="events-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-8">
+                <div class="row">
+                    <div class="col-12 col-lg-7" style="font-family:cursive;">
+                        @foreach (var item in Model)
+                        {
+                            <div class="event">
+                                <div class="event-date">
+                                    <span class="event-day">@Html.DisplayFor(modelItem => item.Event_Date)</span>
+                                    <span class="event-day">@Html.DisplayFor(modelItem => item.Event_Time)</span>
+                                </div>
+                                <div class="event-info">
+                                    <header class="event-header">
+                                        <a href="@Url.Action("Details", "Tournamnets",new { id = item.Tournament_ID })">
+                                            <h4 class="event-title" style="color: #005340; font-weight:bold;">@Html.DisplayFor(modelItem => item.Tournamnet.Tournament_Name)</h4>
+                                        </a>
+                                    </header>
+                                    <h4 style="font-weight: bold;">
+                                        <a href="@Url.Action("Details", "Events",new { id = item.Event_ID })" style="color: #5B0539;">
+                                            @Html.DisplayFor(modelItem => item.Team.Team_Name) Vs @Html.DisplayFor(modelItem => item.Team1.Team_Name)
+                                        </a>
+                                    </h4>
+                                    <a href="@Url.Action("Details", "Venues",new { id = item.Venue_ID })">
+                                        <p class="event-location" style="font-weight:bold; font-size:15px;">@Html.DisplayFor(modelItem => item.Venue.Venue_Name)</p>
+                                    </a>
+                                    <a href="" style="font-weight:bold; font-size:14px; background: red; color:aliceblue; border-radius:4px; padding-left:3px; padding-right:3px;">
+                                        <span class="tag">@Html.DisplayFor(modelItem => item.Sport.Sports_Name)</span>
+                                    </a>
+                                    @if (@Html.DisplayFor(modelItem => item.Event_Details).ToString() == "Na")
+                                    {
+                                        <h5 style="font-weight:bold; margin-top: -1px;">
+                                            result will show here after the match
+                                        </h5>
+                                    }
+                                    else
+                                    {
+                                        <h5>
+                                            @Html.DisplayFor(modelItem => item.Event_Details)
+                                        </h5>
+                                    }
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,73 @@
+﻿@model SoccerDiv.Models.Tournamnet
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<link href="~/Content/adminbutton.css" rel="stylesheet" />
+
+<div class="containerX">
+    <a class="card1" href="@Url.Action("AdminView", "Admins")">
+        <h3>Back To Home</h3>
+        <div class="go-corner">
+            <div class="go-arrow">
+                →
+            </div>
+        </div>
+    </a>
+    <a class="card1" href="@Url.Action("Tournament", "Tournamnets")">
+        <h3>All Tournaments</h3>
+        <div class="go-corner">
+            <div class="go-arrow">
+                →
+            </div>
+        </div>
+    </a>
+</div>
+
+<div>
+    <h4>Tournamnet</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Tournament_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tournament_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tournament_Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tournament_Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tournament_Logo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tournament_Logo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sport.Sports_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sport.Sports_Name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" />
+        </div>
+    }
+</div>

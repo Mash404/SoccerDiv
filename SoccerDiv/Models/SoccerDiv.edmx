@@ -1,0 +1,905 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SoccerDivModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="Admin_ID" />
+          </Key>
+          <Property Name="Admin_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Admin_Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="Admin_Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="Admin_Password" Type="nvarchar" MaxLength="100" />
+          <Property Name="Admin_Image" Type="varchar(max)" />
+          <Property Name="Admin_Dexcription" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Coach">
+          <Key>
+            <PropertyRef Name="Coach_ID" />
+          </Key>
+          <Property Name="Coach_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Sports_ID" Type="int" Nullable="false" />
+          <Property Name="Team_ID" Type="int" Nullable="false" />
+          <Property Name="Coach_Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="Coach_Age" Type="int" />
+          <Property Name="Coach_Nationality" Type="varchar" MaxLength="100" />
+          <Property Name="Coach_Image" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="Contact_ID" />
+          </Key>
+          <Property Name="Contact_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="C_Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="C_Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="C_Message" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="Customer_ID" />
+          </Key>
+          <Property Name="Customer_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Team_ID" Type="int" Nullable="false" />
+          <Property Name="Customer_Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Customer_Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Customer_PhoneNO" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Customer_Address" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Customer_Password" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Customer_Image" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="Event_ID" />
+          </Key>
+          <Property Name="Event_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Sports_ID" Type="int" Nullable="false" />
+          <Property Name="Tournament_ID" Type="int" Nullable="false" />
+          <Property Name="First_Team" Type="int" Nullable="false" />
+          <Property Name="Second_Team" Type="int" Nullable="false" />
+          <Property Name="Venue_ID" Type="int" Nullable="false" />
+          <Property Name="Event_Date" Type="date" />
+          <Property Name="Event_Time" Type="time" Precision="7" />
+          <Property Name="Event-Details" Type="nvarchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="News_ID" />
+          </Key>
+          <Property Name="News_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Customer_ID" Type="int" Nullable="false" />
+          <Property Name="News_Title" Type="nvarchar" MaxLength="100" />
+          <Property Name="News_Date" Type="date" />
+          <Property Name="NewsTime" Type="time" Precision="7" />
+          <Property Name="News_Image" Type="varchar(max)" />
+          <Property Name="News_Dexcription" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Player">
+          <Key>
+            <PropertyRef Name="Player_ID" />
+          </Key>
+          <Property Name="Player_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Sports_ID" Type="int" Nullable="false" />
+          <Property Name="Team_ID" Type="int" Nullable="false" />
+          <Property Name="Player_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Player_Age" Type="int" Nullable="false" />
+          <Property Name="Player_Nationality" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Player_Position" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Player_Rating" Type="float" />
+          <Property Name="Player_Ranking" Type="smallint" />
+          <Property Name="Player_Image" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Sports">
+          <Key>
+            <PropertyRef Name="Sports_ID" />
+          </Key>
+          <Property Name="Sports_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Sports_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sports_Description" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="Sports_Image" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Team">
+          <Key>
+            <PropertyRef Name="Team_ID" />
+          </Key>
+          <Property Name="Team_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Sports_ID" Type="int" Nullable="false" />
+          <Property Name="Team_Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Team_Description" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="Team_Rating" Type="float" />
+          <Property Name="Team_Ranking" Type="smallint" />
+          <Property Name="Team_Logo" Type="varchar(max)" />
+          <Property Name="Team_Country" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Tournamnet">
+          <Key>
+            <PropertyRef Name="Tournament_ID" />
+          </Key>
+          <Property Name="Tournament_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Sports_ID" Type="int" Nullable="false" />
+          <Property Name="Tournament_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tournament_Description" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Tournament_Logo" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Venue">
+          <Key>
+            <PropertyRef Name="Venue_ID" />
+          </Key>
+          <Property Name="Venue_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Venue_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Venue_Capacity" Type="int" />
+          <Property Name="Venue_Location" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Venue_Image" Type="varchar(max)" />
+        </EntityType>
+        <Association Name="FK__Coach__Sports_ID__2A4B4B5E">
+          <End Role="Sports" Type="Self.Sports" Multiplicity="1" />
+          <End Role="Coach" Type="Self.Coach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sports">
+              <PropertyRef Name="Sports_ID" />
+            </Principal>
+            <Dependent Role="Coach">
+              <PropertyRef Name="Sports_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Coach__Team_ID__2B3F6F97">
+          <End Role="Team" Type="Self.Team" Multiplicity="1" />
+          <End Role="Coach" Type="Self.Coach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Team_ID" />
+            </Principal>
+            <Dependent Role="Coach">
+              <PropertyRef Name="Team_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Customer__Team_I__164452B1">
+          <End Role="Team" Type="Self.Team" Multiplicity="1" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Team_ID" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="Team_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Event__First_Tea__239E4DCF">
+          <End Role="Team" Type="Self.Team" Multiplicity="1" />
+          <End Role="Event" Type="Self.Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Team_ID" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="First_Team" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Event__Second_Te__24927208">
+          <End Role="Team" Type="Self.Team" Multiplicity="1" />
+          <End Role="Event" Type="Self.Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Team_ID" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="Second_Team" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Event__Sports_ID__21B6055D">
+          <End Role="Sports" Type="Self.Sports" Multiplicity="1" />
+          <End Role="Event" Type="Self.Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sports">
+              <PropertyRef Name="Sports_ID" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="Sports_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Event__Tournamen__22AA2996">
+          <End Role="Tournamnet" Type="Self.Tournamnet" Multiplicity="1" />
+          <End Role="Event" Type="Self.Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tournamnet">
+              <PropertyRef Name="Tournament_ID" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="Tournament_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Event__Venue_ID__25869641">
+          <End Role="Venue" Type="Self.Venue" Multiplicity="1" />
+          <End Role="Event" Type="Self.Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Venue">
+              <PropertyRef Name="Venue_ID" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="Venue_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__News__Customer_I__300424B4">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="News" Type="Self.News" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Customer_ID" />
+            </Principal>
+            <Dependent Role="News">
+              <PropertyRef Name="Customer_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Player__Sports_I__1920BF5C">
+          <End Role="Sports" Type="Self.Sports" Multiplicity="1" />
+          <End Role="Player" Type="Self.Player" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sports">
+              <PropertyRef Name="Sports_ID" />
+            </Principal>
+            <Dependent Role="Player">
+              <PropertyRef Name="Sports_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Player__Team_ID__1A14E395">
+          <End Role="Team" Type="Self.Team" Multiplicity="1" />
+          <End Role="Player" Type="Self.Player" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Team_ID" />
+            </Principal>
+            <Dependent Role="Player">
+              <PropertyRef Name="Team_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Team__Sports_ID__1273C1CD">
+          <End Role="Sports" Type="Self.Sports" Multiplicity="1" />
+          <End Role="Team" Type="Self.Team" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sports">
+              <PropertyRef Name="Sports_ID" />
+            </Principal>
+            <Dependent Role="Team">
+              <PropertyRef Name="Sports_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tournamne__Sport__1CF15040">
+          <End Role="Sports" Type="Self.Sports" Multiplicity="1" />
+          <End Role="Tournamnet" Type="Self.Tournamnet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sports">
+              <PropertyRef Name="Sports_ID" />
+            </Principal>
+            <Dependent Role="Tournamnet">
+              <PropertyRef Name="Sports_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SoccerDivModelStoreContainer">
+          <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Coach" EntityType="Self.Coach" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Event" EntityType="Self.Event" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="News" EntityType="Self.News" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Player" EntityType="Self.Player" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sports" EntityType="Self.Sports" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Team" EntityType="Self.Team" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tournamnet" EntityType="Self.Tournamnet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Venue" EntityType="Self.Venue" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Coach__Sports_ID__2A4B4B5E" Association="Self.FK__Coach__Sports_ID__2A4B4B5E">
+            <End Role="Sports" EntitySet="Sports" />
+            <End Role="Coach" EntitySet="Coach" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Coach__Team_ID__2B3F6F97" Association="Self.FK__Coach__Team_ID__2B3F6F97">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="Coach" EntitySet="Coach" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Customer__Team_I__164452B1" Association="Self.FK__Customer__Team_I__164452B1">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="Customer" EntitySet="Customer" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Event__First_Tea__239E4DCF" Association="Self.FK__Event__First_Tea__239E4DCF">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="Event" EntitySet="Event" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Event__Second_Te__24927208" Association="Self.FK__Event__Second_Te__24927208">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="Event" EntitySet="Event" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Event__Sports_ID__21B6055D" Association="Self.FK__Event__Sports_ID__21B6055D">
+            <End Role="Sports" EntitySet="Sports" />
+            <End Role="Event" EntitySet="Event" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Event__Tournamen__22AA2996" Association="Self.FK__Event__Tournamen__22AA2996">
+            <End Role="Tournamnet" EntitySet="Tournamnet" />
+            <End Role="Event" EntitySet="Event" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Event__Venue_ID__25869641" Association="Self.FK__Event__Venue_ID__25869641">
+            <End Role="Venue" EntitySet="Venue" />
+            <End Role="Event" EntitySet="Event" />
+          </AssociationSet>
+          <AssociationSet Name="FK__News__Customer_I__300424B4" Association="Self.FK__News__Customer_I__300424B4">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="News" EntitySet="News" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Player__Sports_I__1920BF5C" Association="Self.FK__Player__Sports_I__1920BF5C">
+            <End Role="Sports" EntitySet="Sports" />
+            <End Role="Player" EntitySet="Player" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Player__Team_ID__1A14E395" Association="Self.FK__Player__Team_ID__1A14E395">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="Player" EntitySet="Player" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Team__Sports_ID__1273C1CD" Association="Self.FK__Team__Sports_ID__1273C1CD">
+            <End Role="Sports" EntitySet="Sports" />
+            <End Role="Team" EntitySet="Team" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tournamne__Sport__1CF15040" Association="Self.FK__Tournamne__Sport__1CF15040">
+            <End Role="Sports" EntitySet="Sports" />
+            <End Role="Tournamnet" EntitySet="Tournamnet" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SoccerDivModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="Admin_ID" />
+          </Key>
+          <Property Name="Admin_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Admin_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Admin_Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Admin_Password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Admin_Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Admin_Dexcription" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Coach">
+          <Key>
+            <PropertyRef Name="Coach_ID" />
+          </Key>
+          <Property Name="Coach_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Sports_ID" Type="Int32" Nullable="false" />
+          <Property Name="Team_ID" Type="Int32" Nullable="false" />
+          <Property Name="Coach_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Coach_Age" Type="Int32" />
+          <Property Name="Coach_Nationality" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Coach_Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Sport" Relationship="Self.FK__Coach__Sports_ID__2A4B4B5E" FromRole="Coach" ToRole="Sports" />
+          <NavigationProperty Name="Team" Relationship="Self.FK__Coach__Team_ID__2B3F6F97" FromRole="Coach" ToRole="Team" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="Contact_ID" />
+          </Key>
+          <Property Name="Contact_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="C_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="C_Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="C_Message" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="Customer_ID" />
+          </Key>
+          <Property Name="Customer_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Team_ID" Type="Int32" Nullable="false" />
+          <Property Name="Customer_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Customer_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Customer_PhoneNO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Customer_Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Customer_Password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Customer_Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Team" Relationship="Self.FK__Customer__Team_I__164452B1" FromRole="Customer" ToRole="Team" />
+          <NavigationProperty Name="News" Relationship="Self.FK__News__Customer_I__300424B4" FromRole="Customer" ToRole="News" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="Event_ID" />
+          </Key>
+          <Property Name="Event_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Sports_ID" Type="Int32" Nullable="false" />
+          <Property Name="Tournament_ID" Type="Int32" Nullable="false" />
+          <Property Name="First_Team" Type="Int32" Nullable="false" />
+          <Property Name="Second_Team" Type="Int32" Nullable="false" />
+          <Property Name="Venue_ID" Type="Int32" Nullable="false" />
+          <Property Name="Event_Date" Type="DateTime" Precision="0" />
+          <Property Name="Event_Time" Type="Time" Precision="7" />
+          <Property Name="Event_Details" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Team" Relationship="Self.FK__Event__First_Tea__239E4DCF" FromRole="Event" ToRole="Team" />
+          <NavigationProperty Name="Team1" Relationship="Self.FK__Event__Second_Te__24927208" FromRole="Event" ToRole="Team" />
+          <NavigationProperty Name="Sport" Relationship="Self.FK__Event__Sports_ID__21B6055D" FromRole="Event" ToRole="Sports" />
+          <NavigationProperty Name="Tournamnet" Relationship="Self.FK__Event__Tournamen__22AA2996" FromRole="Event" ToRole="Tournamnet" />
+          <NavigationProperty Name="Venue" Relationship="Self.FK__Event__Venue_ID__25869641" FromRole="Event" ToRole="Venue" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="News_ID" />
+          </Key>
+          <Property Name="News_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Customer_ID" Type="Int32" Nullable="false" />
+          <Property Name="News_Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="News_Date" Type="DateTime" Precision="0" />
+          <Property Name="NewsTime" Type="Time" Precision="7" />
+          <Property Name="News_Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="News_Dexcription" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK__News__Customer_I__300424B4" FromRole="News" ToRole="Customer" />
+        </EntityType>
+        <EntityType Name="Player">
+          <Key>
+            <PropertyRef Name="Player_ID" />
+          </Key>
+          <Property Name="Player_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Sports_ID" Type="Int32" Nullable="false" />
+          <Property Name="Team_ID" Type="Int32" Nullable="false" />
+          <Property Name="Player_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Player_Age" Type="Int32" Nullable="false" />
+          <Property Name="Player_Nationality" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Player_Position" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Player_Rating" Type="Double" />
+          <Property Name="Player_Ranking" Type="Int16" />
+          <Property Name="Player_Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Sport" Relationship="Self.FK__Player__Sports_I__1920BF5C" FromRole="Player" ToRole="Sports" />
+          <NavigationProperty Name="Team" Relationship="Self.FK__Player__Team_ID__1A14E395" FromRole="Player" ToRole="Team" />
+        </EntityType>
+        <EntityType Name="Sport">
+          <Key>
+            <PropertyRef Name="Sports_ID" />
+          </Key>
+          <Property Name="Sports_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Sports_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Sports_Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Sports_Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Coaches" Relationship="Self.FK__Coach__Sports_ID__2A4B4B5E" FromRole="Sports" ToRole="Coach" />
+          <NavigationProperty Name="Events" Relationship="Self.FK__Event__Sports_ID__21B6055D" FromRole="Sports" ToRole="Event" />
+          <NavigationProperty Name="Players" Relationship="Self.FK__Player__Sports_I__1920BF5C" FromRole="Sports" ToRole="Player" />
+          <NavigationProperty Name="Teams" Relationship="Self.FK__Team__Sports_ID__1273C1CD" FromRole="Sports" ToRole="Team" />
+          <NavigationProperty Name="Tournamnets" Relationship="Self.FK__Tournamne__Sport__1CF15040" FromRole="Sports" ToRole="Tournamnet" />
+        </EntityType>
+        <EntityType Name="Team">
+          <Key>
+            <PropertyRef Name="Team_ID" />
+          </Key>
+          <Property Name="Team_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Sports_ID" Type="Int32" Nullable="false" />
+          <Property Name="Team_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Team_Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Team_Rating" Type="Double" />
+          <Property Name="Team_Ranking" Type="Int16" />
+          <Property Name="Team_Logo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Team_Country" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Coaches" Relationship="Self.FK__Coach__Team_ID__2B3F6F97" FromRole="Team" ToRole="Coach" />
+          <NavigationProperty Name="Customers" Relationship="Self.FK__Customer__Team_I__164452B1" FromRole="Team" ToRole="Customer" />
+          <NavigationProperty Name="Events" Relationship="Self.FK__Event__First_Tea__239E4DCF" FromRole="Team" ToRole="Event" />
+          <NavigationProperty Name="Events1" Relationship="Self.FK__Event__Second_Te__24927208" FromRole="Team" ToRole="Event" />
+          <NavigationProperty Name="Players" Relationship="Self.FK__Player__Team_ID__1A14E395" FromRole="Team" ToRole="Player" />
+          <NavigationProperty Name="Sport" Relationship="Self.FK__Team__Sports_ID__1273C1CD" FromRole="Team" ToRole="Sports" />
+        </EntityType>
+        <EntityType Name="Tournamnet">
+          <Key>
+            <PropertyRef Name="Tournament_ID" />
+          </Key>
+          <Property Name="Tournament_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Sports_ID" Type="Int32" Nullable="false" />
+          <Property Name="Tournament_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tournament_Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Tournament_Logo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Events" Relationship="Self.FK__Event__Tournamen__22AA2996" FromRole="Tournamnet" ToRole="Event" />
+          <NavigationProperty Name="Sport" Relationship="Self.FK__Tournamne__Sport__1CF15040" FromRole="Tournamnet" ToRole="Sports" />
+        </EntityType>
+        <EntityType Name="Venue">
+          <Key>
+            <PropertyRef Name="Venue_ID" />
+          </Key>
+          <Property Name="Venue_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Venue_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Venue_Capacity" Type="Int32" />
+          <Property Name="Venue_Location" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Venue_Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Events" Relationship="Self.FK__Event__Venue_ID__25869641" FromRole="Venue" ToRole="Event" />
+        </EntityType>
+        <Association Name="FK__Coach__Sports_ID__2A4B4B5E">
+          <End Role="Sports" Type="Self.Sport" Multiplicity="1" />
+          <End Role="Coach" Type="Self.Coach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sports">
+              <PropertyRef Name="Sports_ID" />
+            </Principal>
+            <Dependent Role="Coach">
+              <PropertyRef Name="Sports_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Coach__Team_ID__2B3F6F97">
+          <End Role="Team" Type="Self.Team" Multiplicity="1" />
+          <End Role="Coach" Type="Self.Coach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Team_ID" />
+            </Principal>
+            <Dependent Role="Coach">
+              <PropertyRef Name="Team_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Customer__Team_I__164452B1">
+          <End Role="Team" Type="Self.Team" Multiplicity="1" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Team_ID" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="Team_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__News__Customer_I__300424B4">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="News" Type="Self.News" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Customer_ID" />
+            </Principal>
+            <Dependent Role="News">
+              <PropertyRef Name="Customer_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Event__First_Tea__239E4DCF">
+          <End Role="Team" Type="Self.Team" Multiplicity="1" />
+          <End Role="Event" Type="Self.Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Team_ID" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="First_Team" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Event__Second_Te__24927208">
+          <End Role="Team" Type="Self.Team" Multiplicity="1" />
+          <End Role="Event" Type="Self.Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Team_ID" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="Second_Team" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Event__Sports_ID__21B6055D">
+          <End Role="Sports" Type="Self.Sport" Multiplicity="1" />
+          <End Role="Event" Type="Self.Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sports">
+              <PropertyRef Name="Sports_ID" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="Sports_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Event__Tournamen__22AA2996">
+          <End Role="Tournamnet" Type="Self.Tournamnet" Multiplicity="1" />
+          <End Role="Event" Type="Self.Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tournamnet">
+              <PropertyRef Name="Tournament_ID" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="Tournament_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Event__Venue_ID__25869641">
+          <End Role="Venue" Type="Self.Venue" Multiplicity="1" />
+          <End Role="Event" Type="Self.Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Venue">
+              <PropertyRef Name="Venue_ID" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="Venue_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Player__Sports_I__1920BF5C">
+          <End Role="Sports" Type="Self.Sport" Multiplicity="1" />
+          <End Role="Player" Type="Self.Player" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sports">
+              <PropertyRef Name="Sports_ID" />
+            </Principal>
+            <Dependent Role="Player">
+              <PropertyRef Name="Sports_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Player__Team_ID__1A14E395">
+          <End Role="Team" Type="Self.Team" Multiplicity="1" />
+          <End Role="Player" Type="Self.Player" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Team_ID" />
+            </Principal>
+            <Dependent Role="Player">
+              <PropertyRef Name="Team_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Team__Sports_ID__1273C1CD">
+          <End Role="Sports" Type="Self.Sport" Multiplicity="1" />
+          <End Role="Team" Type="Self.Team" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sports">
+              <PropertyRef Name="Sports_ID" />
+            </Principal>
+            <Dependent Role="Team">
+              <PropertyRef Name="Sports_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tournamne__Sport__1CF15040">
+          <End Role="Sports" Type="Self.Sport" Multiplicity="1" />
+          <End Role="Tournamnet" Type="Self.Tournamnet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sports">
+              <PropertyRef Name="Sports_ID" />
+            </Principal>
+            <Dependent Role="Tournamnet">
+              <PropertyRef Name="Sports_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SoccerDivEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Admins" EntityType="Self.Admin" />
+          <EntitySet Name="Coaches" EntityType="Self.Coach" />
+          <EntitySet Name="Contacts" EntityType="Self.Contact" />
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="Events" EntityType="Self.Event" />
+          <EntitySet Name="News" EntityType="Self.News" />
+          <EntitySet Name="Players" EntityType="Self.Player" />
+          <EntitySet Name="Sports" EntityType="Self.Sport" />
+          <EntitySet Name="Teams" EntityType="Self.Team" />
+          <EntitySet Name="Tournamnets" EntityType="Self.Tournamnet" />
+          <EntitySet Name="Venues" EntityType="Self.Venue" />
+          <AssociationSet Name="FK__Coach__Sports_ID__2A4B4B5E" Association="Self.FK__Coach__Sports_ID__2A4B4B5E">
+            <End Role="Sports" EntitySet="Sports" />
+            <End Role="Coach" EntitySet="Coaches" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Coach__Team_ID__2B3F6F97" Association="Self.FK__Coach__Team_ID__2B3F6F97">
+            <End Role="Team" EntitySet="Teams" />
+            <End Role="Coach" EntitySet="Coaches" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Customer__Team_I__164452B1" Association="Self.FK__Customer__Team_I__164452B1">
+            <End Role="Team" EntitySet="Teams" />
+            <End Role="Customer" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__News__Customer_I__300424B4" Association="Self.FK__News__Customer_I__300424B4">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="News" EntitySet="News" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Event__First_Tea__239E4DCF" Association="Self.FK__Event__First_Tea__239E4DCF">
+            <End Role="Team" EntitySet="Teams" />
+            <End Role="Event" EntitySet="Events" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Event__Second_Te__24927208" Association="Self.FK__Event__Second_Te__24927208">
+            <End Role="Team" EntitySet="Teams" />
+            <End Role="Event" EntitySet="Events" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Event__Sports_ID__21B6055D" Association="Self.FK__Event__Sports_ID__21B6055D">
+            <End Role="Sports" EntitySet="Sports" />
+            <End Role="Event" EntitySet="Events" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Event__Tournamen__22AA2996" Association="Self.FK__Event__Tournamen__22AA2996">
+            <End Role="Tournamnet" EntitySet="Tournamnets" />
+            <End Role="Event" EntitySet="Events" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Event__Venue_ID__25869641" Association="Self.FK__Event__Venue_ID__25869641">
+            <End Role="Venue" EntitySet="Venues" />
+            <End Role="Event" EntitySet="Events" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Player__Sports_I__1920BF5C" Association="Self.FK__Player__Sports_I__1920BF5C">
+            <End Role="Sports" EntitySet="Sports" />
+            <End Role="Player" EntitySet="Players" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Player__Team_ID__1A14E395" Association="Self.FK__Player__Team_ID__1A14E395">
+            <End Role="Team" EntitySet="Teams" />
+            <End Role="Player" EntitySet="Players" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Team__Sports_ID__1273C1CD" Association="Self.FK__Team__Sports_ID__1273C1CD">
+            <End Role="Sports" EntitySet="Sports" />
+            <End Role="Team" EntitySet="Teams" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tournamne__Sport__1CF15040" Association="Self.FK__Tournamne__Sport__1CF15040">
+            <End Role="Sports" EntitySet="Sports" />
+            <End Role="Tournamnet" EntitySet="Tournamnets" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SoccerDivModelStoreContainer" CdmEntityContainer="SoccerDivEntities">
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="SoccerDivModel.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="Admin_ID" ColumnName="Admin_ID" />
+                <ScalarProperty Name="Admin_Name" ColumnName="Admin_Name" />
+                <ScalarProperty Name="Admin_Email" ColumnName="Admin_Email" />
+                <ScalarProperty Name="Admin_Password" ColumnName="Admin_Password" />
+                <ScalarProperty Name="Admin_Image" ColumnName="Admin_Image" />
+                <ScalarProperty Name="Admin_Dexcription" ColumnName="Admin_Dexcription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Coaches">
+            <EntityTypeMapping TypeName="SoccerDivModel.Coach">
+              <MappingFragment StoreEntitySet="Coach">
+                <ScalarProperty Name="Coach_ID" ColumnName="Coach_ID" />
+                <ScalarProperty Name="Sports_ID" ColumnName="Sports_ID" />
+                <ScalarProperty Name="Team_ID" ColumnName="Team_ID" />
+                <ScalarProperty Name="Coach_Name" ColumnName="Coach_Name" />
+                <ScalarProperty Name="Coach_Age" ColumnName="Coach_Age" />
+                <ScalarProperty Name="Coach_Nationality" ColumnName="Coach_Nationality" />
+                <ScalarProperty Name="Coach_Image" ColumnName="Coach_Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contacts">
+            <EntityTypeMapping TypeName="SoccerDivModel.Contact">
+              <MappingFragment StoreEntitySet="Contact">
+                <ScalarProperty Name="Contact_ID" ColumnName="Contact_ID" />
+                <ScalarProperty Name="C_Name" ColumnName="C_Name" />
+                <ScalarProperty Name="C_Email" ColumnName="C_Email" />
+                <ScalarProperty Name="C_Message" ColumnName="C_Message" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="SoccerDivModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
+                <ScalarProperty Name="Team_ID" ColumnName="Team_ID" />
+                <ScalarProperty Name="Customer_Name" ColumnName="Customer_Name" />
+                <ScalarProperty Name="Customer_Email" ColumnName="Customer_Email" />
+                <ScalarProperty Name="Customer_PhoneNO" ColumnName="Customer_PhoneNO" />
+                <ScalarProperty Name="Customer_Address" ColumnName="Customer_Address" />
+                <ScalarProperty Name="Customer_Password" ColumnName="Customer_Password" />
+                <ScalarProperty Name="Customer_Image" ColumnName="Customer_Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Events">
+            <EntityTypeMapping TypeName="SoccerDivModel.Event">
+              <MappingFragment StoreEntitySet="Event">
+                <ScalarProperty Name="Event_ID" ColumnName="Event_ID" />
+                <ScalarProperty Name="Sports_ID" ColumnName="Sports_ID" />
+                <ScalarProperty Name="Tournament_ID" ColumnName="Tournament_ID" />
+                <ScalarProperty Name="First_Team" ColumnName="First_Team" />
+                <ScalarProperty Name="Second_Team" ColumnName="Second_Team" />
+                <ScalarProperty Name="Venue_ID" ColumnName="Venue_ID" />
+                <ScalarProperty Name="Event_Date" ColumnName="Event_Date" />
+                <ScalarProperty Name="Event_Time" ColumnName="Event_Time" />
+                <ScalarProperty Name="Event_Details" ColumnName="Event-Details" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="News">
+            <EntityTypeMapping TypeName="SoccerDivModel.News">
+              <MappingFragment StoreEntitySet="News">
+                <ScalarProperty Name="News_ID" ColumnName="News_ID" />
+                <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
+                <ScalarProperty Name="News_Title" ColumnName="News_Title" />
+                <ScalarProperty Name="News_Date" ColumnName="News_Date" />
+                <ScalarProperty Name="NewsTime" ColumnName="NewsTime" />
+                <ScalarProperty Name="News_Image" ColumnName="News_Image" />
+                <ScalarProperty Name="News_Dexcription" ColumnName="News_Dexcription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Players">
+            <EntityTypeMapping TypeName="SoccerDivModel.Player">
+              <MappingFragment StoreEntitySet="Player">
+                <ScalarProperty Name="Player_ID" ColumnName="Player_ID" />
+                <ScalarProperty Name="Sports_ID" ColumnName="Sports_ID" />
+                <ScalarProperty Name="Team_ID" ColumnName="Team_ID" />
+                <ScalarProperty Name="Player_Name" ColumnName="Player_Name" />
+                <ScalarProperty Name="Player_Age" ColumnName="Player_Age" />
+                <ScalarProperty Name="Player_Nationality" ColumnName="Player_Nationality" />
+                <ScalarProperty Name="Player_Position" ColumnName="Player_Position" />
+                <ScalarProperty Name="Player_Rating" ColumnName="Player_Rating" />
+                <ScalarProperty Name="Player_Ranking" ColumnName="Player_Ranking" />
+                <ScalarProperty Name="Player_Image" ColumnName="Player_Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sports">
+            <EntityTypeMapping TypeName="SoccerDivModel.Sport">
+              <MappingFragment StoreEntitySet="Sports">
+                <ScalarProperty Name="Sports_ID" ColumnName="Sports_ID" />
+                <ScalarProperty Name="Sports_Name" ColumnName="Sports_Name" />
+                <ScalarProperty Name="Sports_Description" ColumnName="Sports_Description" />
+                <ScalarProperty Name="Sports_Image" ColumnName="Sports_Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Teams">
+            <EntityTypeMapping TypeName="SoccerDivModel.Team">
+              <MappingFragment StoreEntitySet="Team">
+                <ScalarProperty Name="Team_ID" ColumnName="Team_ID" />
+                <ScalarProperty Name="Sports_ID" ColumnName="Sports_ID" />
+                <ScalarProperty Name="Team_Name" ColumnName="Team_Name" />
+                <ScalarProperty Name="Team_Description" ColumnName="Team_Description" />
+                <ScalarProperty Name="Team_Rating" ColumnName="Team_Rating" />
+                <ScalarProperty Name="Team_Ranking" ColumnName="Team_Ranking" />
+                <ScalarProperty Name="Team_Logo" ColumnName="Team_Logo" />
+                <ScalarProperty Name="Team_Country" ColumnName="Team_Country" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tournamnets">
+            <EntityTypeMapping TypeName="SoccerDivModel.Tournamnet">
+              <MappingFragment StoreEntitySet="Tournamnet">
+                <ScalarProperty Name="Tournament_ID" ColumnName="Tournament_ID" />
+                <ScalarProperty Name="Sports_ID" ColumnName="Sports_ID" />
+                <ScalarProperty Name="Tournament_Name" ColumnName="Tournament_Name" />
+                <ScalarProperty Name="Tournament_Description" ColumnName="Tournament_Description" />
+                <ScalarProperty Name="Tournament_Logo" ColumnName="Tournament_Logo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Venues">
+            <EntityTypeMapping TypeName="SoccerDivModel.Venue">
+              <MappingFragment StoreEntitySet="Venue">
+                <ScalarProperty Name="Venue_ID" ColumnName="Venue_ID" />
+                <ScalarProperty Name="Venue_Name" ColumnName="Venue_Name" />
+                <ScalarProperty Name="Venue_Capacity" ColumnName="Venue_Capacity" />
+                <ScalarProperty Name="Venue_Location" ColumnName="Venue_Location" />
+                <ScalarProperty Name="Venue_Image" ColumnName="Venue_Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

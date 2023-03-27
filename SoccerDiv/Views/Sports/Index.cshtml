@@ -1,0 +1,45 @@
+﻿@model IEnumerable<SoccerDiv.Models.Sport>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Sports_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sports_Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sports_Image)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sports_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sports_Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sports_Image)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Sports_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Sports_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Sports_ID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,29 @@
+﻿@model SoccerDiv.Models.Venue
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<link href="~/Content/detailsx.css" rel="stylesheet" />
+
+<div id="container">
+
+    <div class="product-details">
+
+        <h1>@Html.DisplayFor(model => model.Venue_Name)</h1>
+
+        <h2>Capacity: @Html.DisplayFor(model => model.Venue_Capacity)</h2>
+        <h3>Location: @Html.DisplayFor(model => model.Venue_Location)</h3>
+        <div class="control">
+
+        </div>
+    </div>
+
+    <div class="product-image">
+        @if (Model.Venue_Image != null)
+        {
+            var imgPath = Model.Venue_Image;
+            <img src="@Url.Content(imgPath)" alt="Omar Dsoky">
+        }
+    </div>
+</div>

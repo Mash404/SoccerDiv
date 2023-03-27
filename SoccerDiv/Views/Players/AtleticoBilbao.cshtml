@@ -1,0 +1,52 @@
+﻿@model IEnumerable<SoccerDiv.Models.Player>
+
+@{
+    ViewBag.Title = "AtleticoBilbao";
+    var msg = ViewBag.AtleticoBilbao;
+}
+<link href="~/Content/teamdetails.css" rel="stylesheet" />
+<h2>AtleticoBilbao</h2>
+
+<div class="portfoliocard">
+    <div class="coverphoto"></div>
+    <div class="profile_picture">
+        <img src="~/Content/Laliga/894_-athletic_bilbao-primary-.jpeg" alt="profile card" style="height:110px; width:110px; border-radius:100%">
+    </div>
+    <div class="left_col">
+        <div class="followers">
+            <div class="follow_count" style="color: #0D2854">Ranking</div>
+            <h2 style="color: #6F0095;">
+                0
+            </h2>
+        </div>
+        <div class="following">
+            <div class="follow_count" style="color: #0D2854">Rating</div>
+            <h2 style="color: #6F0095;">
+                0
+            </h2>
+        </div>
+    </div>
+    <div class="right_col">
+        <h2 class="name">AtleticoBilbao</h2>
+        <h3 class="location" style="margin-top:4px;">Football</h3>
+        <div class="player_picture">
+            @if (msg != null)
+            {
+                <h2>
+                    @msg
+                </h2>
+            }
+            else
+            {
+                foreach (var item in Model)
+                {
+                    <a href="@Url.Action("Details", "Players",new { id = item.Player_ID})">
+                        <img src="@Url.Content(item.Player_Image)" alt="profile card" style="border-radius:100%; height:100px; width:100px; margin:4px; margin-top:4px;">
+                    </a>
+                }
+            }
+
+        </div>
+
+    </div>
+</div>

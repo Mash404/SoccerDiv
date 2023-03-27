@@ -1,0 +1,31 @@
+﻿@model SoccerDiv.Models.Tournamnet
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<link href="~/Content/detailsx.css" rel="stylesheet" />
+
+
+<div id="container" style="height:auto;">
+
+    <div class="product-details">
+
+        <h1 style="font-weight:bold; color: #00ff21">@Html.DisplayFor(model => model.Tournament_Name)</h1>
+
+        <h2 style=" font-weight:bold; color: #420707">@Html.DisplayFor(model => model.Sport.Sports_Name)</h2>
+
+        <p>@Html.DisplayFor(model => model.Tournament_Description)</p>
+        <div class="control">
+
+        </div>
+    </div>
+
+    <div class="product-image">
+        @if (Model.Tournament_Logo != null)
+        {
+            var imgPath = Model.Tournament_Logo;
+            <img src="@Url.Content(imgPath)" alt="Omar Dsoky">
+        }
+    </div>
+</div>

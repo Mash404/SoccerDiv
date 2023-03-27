@@ -1,0 +1,38 @@
+﻿@model SoccerDiv.Models.Sport
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Sport</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Sports_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sports_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sports_Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sports_Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sports_Image)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sports_Image)
+        </dd>
+
+    </dl>
+</div>

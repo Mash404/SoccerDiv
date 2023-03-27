@@ -1,0 +1,69 @@
+﻿@model IEnumerable<SoccerDiv.Models.Contact>
+
+@{
+    ViewBag.Title = "ConatctList";
+}
+
+<link href="~/Content/team.css" rel="stylesheet" />
+<link href="~/Content/adminbutton.css" rel="stylesheet" />
+
+<div class="containerX">
+    <a class="card1" href="@Url.Action("AdminView", "Admins")">
+        <h3>Back To Home</h3>
+        <div class="go-corner">
+            <div class="go-arrow">
+                →
+            </div>
+        </div>
+    </a>
+</div>
+
+
+<div class="tableX">
+    <table class="containerD" style="width:1140px;">
+        <thead>
+            <tr>
+                <th>
+                    <h1 style="color: #3BFD0B; font-family: cursive; font-size: 20px;">
+                        @Html.DisplayNameFor(model => model.C_Name)
+                    </h1>
+                </th>
+                <th>
+                    <h1 style="color: #3BFD0B; font-family: cursive; font-size: 20px;">
+                        @Html.DisplayNameFor(model => model.C_Email)
+                    </h1>
+                </th>
+                <th>
+                    <h1 style="color: #3BFD0B; font-family: cursive; font-size: 20px;">
+                        @Html.DisplayNameFor(model => model.C_Message)
+                    </h1>
+                </th>
+                <th style="width: 180px;">
+                    <h1 style="color: #3BFD0B; font-family:cursive; font-size:20px;">
+                        Controll
+                    </h1>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.C_Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.C_Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.C_Message)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Details", "Details", new { id = item.Contact_ID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Contact_ID })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

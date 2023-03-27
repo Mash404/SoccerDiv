@@ -1,0 +1,75 @@
+﻿@model IEnumerable<SoccerDiv.Models.Event>
+
+@{
+    ViewBag.Title = "sort";
+}
+
+<h2>sort</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Event_Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Event_Time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Event_Details)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Team.Team_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Team1.Team_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sport.Sports_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tournamnet.Tournament_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Venue.Venue_Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Event_Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Event_Time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Event_Details)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Team.Team_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Team1.Team_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sport.Sports_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tournamnet.Tournament_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Venue.Venue_Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Event_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Event_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Event_ID })
+        </td>
+    </tr>
+}
+
+</table>

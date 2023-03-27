@@ -1,0 +1,40 @@
+﻿@model IEnumerable<SoccerDiv.Models.Sport>
+
+@{
+    ViewBag.Title = "OtherSports";
+}
+
+<link href="~/Content/sportslist.css" rel="stylesheet" />
+<link href="~/Content/headerDesign.css" rel="stylesheet" />
+<h2>All Sports</h2>
+
+@foreach (var item in Model)
+{
+    <section class="dark">
+        <div class="container py-4">
+            <article class="postcard dark blue">
+                <a class="postcard__img_link" href="#">
+                    <img class="postcard__img" src="@Url.Content(item.Sports_Image)" alt="Image Title" />
+                </a>
+                <div class="postcard__text">
+                    <h1 class="postcard__title blue"><a href="@Url.Action(item.Sports_Name, "Teams")">@Html.DisplayFor(modelItem => item.Sports_Name)</a></h1>
+                    <div class="postcard__subtitle small">
+                        <time datetime="2020-05-25 12:00:00">
+                            @DateTime.Now.Day/ @DateTime.Now.Month/ @DateTime.Now.Year
+                        </time>
+                    </div>
+                    <div class="postcard__bar"></div>
+                    <div class="postcard__preview-txt">@Html.DisplayFor(modelItem => item.Sports_Description)</div>
+                    <ul class="postcard__tagbox">
+                        <li class="tag__item play blue">
+                            <a href="@Url.Action(item.Sports_Name, "Events")">Go Events</a>
+                        </li>
+                        <li class="tag__item play blue">
+                            <a href="@Url.Action(item.Sports_Name, "Teams")">Show Teams</a>
+                        </li>
+                    </ul>
+                </div>
+            </article>
+        </div>
+    </section>
+}

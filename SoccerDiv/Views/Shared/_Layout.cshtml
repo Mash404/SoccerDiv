@@ -1,0 +1,225 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/footer.css" rel="stylesheet" />
+    <title>SoccerDiv</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top" style="background: #44A08D; background: -webkit-linear-gradient(to right, #093637, #44A08D); background: linear-gradient(to right, #093637, #44A08D);">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("SoccerDiv", "Index", "Events", new { area = "" }, new { @class = "navbar-brand", @style = "font-family: cursive; color: #1AB37B; font-weight: bold; letter-spacing: 2px; font-size: 22px;" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a class="nav-link" href="@Url.Action("Football", "Events")" style="font-family: cursive; color: #1AB37B; font-weight: bold; font-size: 17px; ">
+                            Football
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="@Url.Action("Cricket", "Events")" style="font-family: cursive; color: #1AB37B; font-weight: bold; font-size: 17px; ">
+                            Cricket
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="@Url.Action("OtherSports", "Sports")" style="font-family: cursive; color: #1AB37B; font-weight: bold; font-size: 17px; ">
+                            Other Sports
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="@Url.Action("News", "News")" style="font-family: cursive; color: #01E170; font-weight: bold; letter-spacing: 2px; font-size: 17px; "><span class="glyphicon glyphicon-list-alt"></span>Sports News</a></li>
+                    <li><a href="@Url.Action("Premium", "Events")" style="font-family: cursive; color: #01E170; font-weight: bold; letter-spacing: 2px; font-size: 17px; "><span class="glyphicon glyphicon-fire"></span>Premium</a></li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        if ((string)Session["type"] == "Customer")
+                        {
+                            <li>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-family: cursive; color: #01E170; font-weight: bold; font-size: 17px; "><span></span>@User.Identity.Name<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="@Url.Action("CustomerProfile","Customers")" style="font-family: cursive; color: #13392B; font-weight: bold; font-size: 17px;">
+                                            Profile
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Logout", "Customers")" style="font-family: cursive; color: #13392B; font-weight: bold; font-size: 17px;">
+                                            logout
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        }
+                        if ((string)Session["type"] == "Admin")
+                        {
+                            <li>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-family: cursive; color: #01E170; font-weight: bold; font-size: 17px; "><span></span>@User.Identity.Name<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="@Url.Action("AdminProfile","Admins")" style="font-family: cursive; color: #13392B; font-weight: bold; font-size: 17px;">
+                                            Profile
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("AdminView", "Admins")" style="font-family: cursive; color: #13392B; font-weight: bold; font-size: 17px;">
+                                            Admin View
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Logout", "Admins")" style="font-family: cursive; color: #13392B; font-weight: bold; font-size: 17px;">
+                                            logout
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        }
+
+                    }
+                    else
+                    {
+                        <li><a href="@Url.Action("Login", "Customers")" style="font-family: cursive; color: #01E170; font-weight: bold; letter-spacing: 2px; font-size: 17px; "><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer class="site-footerM img-rounded">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6">
+                        <h6 style="font-family:cursive;">About</h6>
+                        <p class="text-justify">
+                            <a href="@Url.Action("Index", "Home")">SoccerDiv</a> objective is to provide which manages the activity of many sports at a time. It also
+                            manages the selection activity of students to college and to state level. The users will consume
+                            less amount of time when compared to manual paper work through the automated system. The
+                            system will take care of all the servicing activity in a quick manner. Data storing is easier. It will be
+                            able to check any report at any time.
+                        </p>
+                    </div>
+
+                    <div class="col-xs-6 col-md-3">
+                        <h6 style="font-family:cursive;">Sport<a href="@Url.Action("Login", "Admins")" style="color: #99f2c8; font-size: 24px; text-transform: uppercase; font-family:cursive;">s</a></h6>
+                        <ul class="footer-linksM">
+                            <li>
+                                <a href="@Url.Action("Football", "Events")">Football</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Cricket", "Events")">Cricket</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Basketball", "Events")">Basketball</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("OtherSports", "Sports")">Others Sports</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-xs-6 col-md-3">
+                        <h6 style="font-family:cursive;">Quick Links</h6>
+                        <ul class="footer-linksM">
+                            <li>
+                                <a href="@Url.Action("About", "Home")">About Us</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Contact", "Contacts")">Contact Us</a>
+                            </li>
+                            <li>
+                                <a href="#">Privacy Policy</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("News", "News")">Sports News</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <ul class="footer-linksM list-unstyled list-inline text-center py-2">
+                        <li class="list-inline-item">
+                            <a href="@Url.Action("Login", "Customers")" class="btn btn-outline-white btn-rounded">Login</a>
+                        </li>
+
+                        <li class="list-inline-item">
+                            <a href="@Url.Action("SignUp", "Customers")" class="btn btn-outline-white btn-rounded">Registration</a>
+                        </li>
+
+                        <li class="list-inline-item">
+                            <a href="@Url.Action("Privacy", "Home")" class="btn btn-outline-white btn-rounded">Premium</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-sm-6 col-xs-12">
+                        <p class="copyright-textM">
+                            Copyright &copy; @DateTime.Now.Year All Rights Reserved by
+                            <a href="#">SoccerDiv</a>.
+                        </p>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <ul class="social-iconsM">
+                            <li>
+                                <a class="facebook" href="https://www.facebook.com/">
+                                    <img src="~/Content/logo/facebook.png" />
+                                </a>
+                            </li>
+                            <li>
+                                <a class="twitter" href="https://twitter.com/">
+                                    <img src="~/Content/logo/twitter.png" />
+                                </a>
+                            </li>
+                            <li>
+                                <a class="messenger" href="https://www.messenger.com/">
+                                    <img src="~/Content/logo/messenger.png" />
+                                </a>
+                            </li>
+                            <li>
+                                <a class="linkedin" href="https://www.linkedin.com/login/">
+                                    <img src="~/Content/logo/linkedin.png" />
+                                </a>
+                            </li>
+                            <li>
+                                <a class="instagram" href="https://www.instagram.com/">
+                                    <img src="~/Content/logo/instagram.png" />
+                                </a>
+                            </li>
+                            <li>
+                                <a class="youtube" href="https://www.youtube.com/">
+                                    <img src="~/Content/logo/youtube.png" />
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

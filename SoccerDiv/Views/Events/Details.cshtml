@@ -1,0 +1,62 @@
+﻿@model SoccerDiv.Models.Event
+
+@{
+    ViewBag.Title = "Details";
+}
+<link href="~/Content/eventdetails.css" rel="stylesheet" />
+
+
+
+<div class="container" style="margin-top:20px;">
+    <!-- code here -->
+    <div class="match">
+        <div class="match-header">
+            <div class="match-tournament">
+                @Html.DisplayFor(model => model.Tournamnet.Tournament_Name)
+            </div>
+            <div class="match-actions">
+                @Html.DisplayFor(model => model.Sport.Sports_Name)
+            </div>
+        </div>
+        <div class="match-content">
+            <div class="column">
+                <div class="team team--home">
+                    <a href="@Url.Action(@Html.DisplayFor(model => model.Team.Team_Name).ToString(), "Players")">
+                        <div class="team-logo">
+                            <img src="@Url.Content(@Html.DisplayFor(model => model.Team.Team_Logo).ToString())" style="height:100px; width:100px; border-radius:100%;"/>
+                        </div>
+                    </a>
+                    <h2 class="team-name">@Html.DisplayFor(model => model.Team.Team_Name)</h2>
+                </div>
+            </div>
+            <div class="column">
+                <div class="match-details">
+                    <div class="match-date">
+                        @Html.DisplayFor(model => model.Event_Date) at <strong>@Html.DisplayFor(model => model.Event_Time)</strong>
+                    </div>
+                    <div class="match-score">
+                        <span class="match-score-number match-score-number--leading">0</span>
+                        <span class="match-score-divider">:</span>
+                        <span class="match-score-number">0</span>
+                    </div>
+                    <div class="match-time-lapsed">
+                        @Html.DisplayFor(model => model.Event_Details)
+                    </div>
+                    <div class="match-referee">
+                        Venue: <strong>@Html.DisplayFor(model => model.Venue.Venue_Name)</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="team team--away">
+                    <a href="@Url.Action(@Html.DisplayFor(model => model.Team1.Team_Name).ToString(), "Players")">
+                        <div class="team-logo">
+                            <img src="@Url.Content(@Html.DisplayFor(model => model.Team1.Team_Logo).ToString())" style="height:100px; width:100px; border-radius:100%;" />
+                        </div>
+                    </a>
+                    <h2 class="team-name">@Html.DisplayFor(model => model.Team1.Team_Name)</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,87 @@
+﻿@model SoccerDiv.Models.Event
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Event</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Event_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Event_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Event_Time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Event_Time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Event_Details)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Event_Details)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Team.Team_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Team.Team_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Team1.Team_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Team1.Team_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sport.Sports_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sport.Sports_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tournamnet.Tournament_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tournamnet.Tournament_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Venue.Venue_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Venue.Venue_Name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" />
+        </div>
+    }
+</div>

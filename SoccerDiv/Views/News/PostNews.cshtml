@@ -1,0 +1,76 @@
+﻿@model SoccerDiv.Models.News
+
+@{
+    ViewBag.Title = "PostNews";
+    var success = ViewBag.Success;
+    var failed = ViewBag.Failed;
+
+}
+
+<link href="~/Content/newscreate.css" rel="stylesheet" />
+<h2>Post Your News</h2>
+
+
+@using (Html.BeginForm("PostNews", "News", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="signup__container">
+
+        <div class="container__child signup__form">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <label>Name</label>
+                @Html.DropDownList("Customer_ID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Customer_ID, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label>News Title</label>
+                @Html.EditorFor(model => model.News_Title, new { htmlAttributes = new { @class = "form-control", @placeholder = "Title" } })
+                @Html.ValidationMessageFor(model => model.News_Title, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label>Date</label>
+                @Html.EditorFor(model => model.News_Date, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.News_Date, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label>Time</label>
+                @Html.EditorFor(model => model.NewsTime, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NewsTime, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label>Caption</label>
+                <input type="file" name="NewsImageFile" required />
+            </div>
+            <div class="form-group">
+                <label>News</label>
+                @Html.EditorFor(model => model.News_Dexcription, new { htmlAttributes = new { @class = "form-control", @placeholder = "Write your description" } })
+                @Html.ValidationMessageFor(model => model.News_Dexcription, "", new { @class = "text-danger" })
+            </div>
+            <div class="m-t-lg">
+                <ul class="list-inline text-center">
+                    <li>
+                        <input type="submit" value="Post" class="btn btn--form" />
+                    </li>
+                    @if (success != null)
+                    {
+                        <li style="color:#85F12B;">
+                            @success
+                        </li>
+                    }
+                    else
+                    {
+                        <li style="color:#85F12B;">
+                            @failed
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

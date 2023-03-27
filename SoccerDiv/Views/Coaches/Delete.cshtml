@@ -1,0 +1,72 @@
+﻿@model SoccerDiv.Models.Coach
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Coach</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Coach_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Coach_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Coach_Age)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Coach_Age)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Coach_Nationality)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Coach_Nationality)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Coach_Image)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Coach_Image)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sport.Sports_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sport.Sports_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Team.Team_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Team.Team_Name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

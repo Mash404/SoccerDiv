@@ -1,0 +1,62 @@
+﻿@model IEnumerable<SoccerDiv.Models.Team>
+
+@{
+    ViewBag.Title = "TableTennis";
+    var noTeam=ViewBag.TableTennis;
+}
+
+<link href="~/Content/allteam.css" rel="stylesheet" />
+<h2>TableTennis</h2>
+
+@if (noTeam != null)
+{
+    <h1>
+        @noTeam
+    </h1>
+}
+else
+{
+    foreach (var item in Model)
+    {
+        <div class="container">
+
+            <div class="card-media">
+                <div class="card-media-object-container">
+                    <div class="card-media-object">
+                        <img src="@Url.Content(item.Team_Logo)" style="height: 100%; width: 58%;" />
+                    </div>
+                    <span class="card-media-object-tag subtle" style="font-weight:bold; font-size:16px; color: #134a69; background:transparent;">
+                        @Html.DisplayFor(modelItem => item.Team_Name)
+                    </span>
+                </div>
+                <div class="card-media-body">
+                    <div class="card-media-body-top">
+                        <span class="subtle">
+                            <label style="font-size:14px; color: #de3600; font-family:cursive;">
+                                Rating : @Html.DisplayFor(modelItem => item.Team_Rating)
+                            </label>
+                            <label class="u-float-right" style="font-size:14px; color: #de3600; font-family:cursive;">
+                                Ranking : @Html.DisplayFor(modelItem => item.Team_Ranking)
+                            </label>
+                        </span>
+                    </div>
+                    <span class="card-media-body-heading">
+                        <label>
+                            @Html.DisplayFor(modelItem => item.Team_Description)
+                        </label>
+                    </span>
+                    <div class="card-media-body-supporting-bottom">
+                        <span class="card-media-body-supporting-bottom-text subtle" style="font-size: 14px; color: #187310; font-weight:bold; font-family: cursive;">
+                            @Html.DisplayFor(modelItem => item.Team_Country) ,  @Html.DisplayFor(modelItem => item.Sport.Sports_Name)
+                        </span>
+                    </div>
+                    <div class="card-media-body-supporting-bottom card-media-body-supporting-bottom-reveal">
+                        <a class="card-media-body-supporting-bottom-text card-media-link u-float-right" href="@Url.Action("Details", "Teams",new { id = item.Team_ID})" style="font-weight:bold; font-size:20px; color: #07802b">
+                            Details
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}

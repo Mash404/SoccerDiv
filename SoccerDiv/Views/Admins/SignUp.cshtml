@@ -1,0 +1,94 @@
+﻿@model SoccerDiv.Models.Admin
+
+@{
+    ViewBag.Title = "SignUp";
+
+    var success = ViewBag.Success;
+    var failed = ViewBag.Failed;
+}
+
+<link href="~/Content/adminsignup.css" rel="stylesheet" />
+<link href="~/Content/adminbutton.css" rel="stylesheet" />
+
+<div class="containerX">
+    <a class="card1" href="@Url.Action("AdminView", "Admins")">
+        <h3>Back To Home</h3>
+        <div class="go-corner">
+            <div class="go-arrow">
+                →
+            </div>
+        </div>
+    </a>
+    <a class="card1" href="@Url.Action("AdminList", "Admins")">
+        <h3>See All Admin</h3>
+        <div class="go-corner">
+            <div class="go-arrow">
+                →
+            </div>
+        </div>
+    </a>
+</div>
+<h2 style="text-align:center;">Only admin can registered</h2>
+
+
+
+@using (Html.BeginForm("SignUp", "Admins", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+<div class="signup__container">
+    <div class="container__child signup__thumbnail">
+        <div class="thumbnail__content text-center">
+            <h1 class="heading--primary">Welcome to MaxSoccer</h1>
+            @if (success != null)
+            {
+                <h2 style="color:#85F12B;">
+                    @success
+                </h2>
+            }
+            else
+            {
+                <h2 style="color:#85F12B;">
+                    @failed
+                </h2>
+            }
+        </div>
+    </div>
+    <div class="container__child signup__form">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            <label>Name</label>
+            @Html.EditorFor(model => model.Admin_Name, new { htmlAttributes = new { @class = "form-control", @placeholder = "Abdullah Al Mohaimen" } })
+            @Html.ValidationMessageFor(model => model.Admin_Name, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            @Html.EditorFor(model => model.Admin_Email, new { htmlAttributes = new { @class = "form-control", @placeholder = "abc@gmail.com" } })
+            @Html.ValidationMessageFor(model => model.Admin_Email, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            @Html.EditorFor(model => model.Admin_Password, new { htmlAttributes = new { @class = "form-control", @placeholder = "**********" } })
+            @Html.ValidationMessageFor(model => model.Admin_Password, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label>Profile Pic</label>
+            <input type="file" name="AdminImageFile" required />
+        </div>
+        <div class="form-group">
+            <label>Description</label>
+            @Html.EditorFor(model => model.Admin_Dexcription, new { htmlAttributes = new { @class = "form-control", @placeholder = "Short Description" } })
+            @Html.ValidationMessageFor(model => model.Admin_Dexcription, "", new { @class = "text-danger" })
+        </div>
+        <div class="m-t-lg">
+            <ul class="list-inline text-center">
+                <li>
+                    <input type="submit" value="Register" class="btn btn--form" />
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+}
+

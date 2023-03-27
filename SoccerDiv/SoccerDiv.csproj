@@ -1,0 +1,892 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6F55BE0E-BA18-4A8C-9240-EF6C3C6DFCD9}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SoccerDiv</RootNamespace>
+    <AssemblyName>SoccerDiv</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44322</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminsController.cs" />
+    <Compile Include="Controllers\CoachesController.cs" />
+    <Compile Include="Controllers\ContactsController.cs" />
+    <Compile Include="Controllers\CustomersController.cs" />
+    <Compile Include="Controllers\EventsController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\PlayersController.cs" />
+    <Compile Include="Controllers\SportsController.cs" />
+    <Compile Include="Controllers\TeamsController.cs" />
+    <Compile Include="Controllers\TournamnetsController.cs" />
+    <Compile Include="Controllers\VenuesController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Admin.cs">
+      <DependentUpon>SoccerDiv.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Coach.cs">
+      <DependentUpon>SoccerDiv.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Contact.cs">
+      <DependentUpon>SoccerDiv.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Customer.cs">
+      <DependentUpon>SoccerDiv.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Event.cs">
+      <DependentUpon>SoccerDiv.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HttpPostedImageFile.cs" />
+    <Compile Include="Models\News.cs">
+      <DependentUpon>SoccerDiv.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Player.cs">
+      <DependentUpon>SoccerDiv.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SoccerDiv.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SoccerDiv.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SoccerDiv.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SoccerDiv.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SoccerDiv.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SoccerDiv.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Sport.cs">
+      <DependentUpon>SoccerDiv.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Team.cs">
+      <DependentUpon>SoccerDiv.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TempAdmin.cs" />
+    <Compile Include="Models\TempCustomer.cs" />
+    <Compile Include="Models\Tournamnet.cs">
+      <DependentUpon>SoccerDiv.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Venue.cs">
+      <DependentUpon>SoccerDiv.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\addplayer.css" />
+    <Content Include="Content\AddSports.css" />
+    <Content Include="Content\addteam.css" />
+    <Content Include="Content\admin.css" />
+    <Content Include="Content\adminbutton.css" />
+    <Content Include="Content\adminsignup.css" />
+    <Content Include="Content\allteam.css" />
+    <Content Include="Content\background\a.jpg" />
+    <Content Include="Content\background\b.jpg" />
+    <Content Include="Content\background\c.jpg" />
+    <Content Include="Content\background\d.jpg" />
+    <Content Include="Content\background\e.jpg" />
+    <Content Include="Content\background\f.png" />
+    <Content Include="Content\background\i.jpg" />
+    <Content Include="Content\background\j.jpg" />
+    <Content Include="Content\background\m.png" />
+    <Content Include="Content\banner.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\clnd.css" />
+    <Content Include="Content\contact.css" />
+    <Content Include="Content\cricket\030-bangladesh_generated.jpg" />
+    <Content Include="Content\cricket\afghanistan.png" />
+    <Content Include="Content\cricket\australia.png" />
+    <Content Include="Content\cricket\bangladesh.png" />
+    <Content Include="Content\cricket\denmark.png" />
+    <Content Include="Content\cricket\england.png" />
+    <Content Include="Content\cricket\india.png" />
+    <Content Include="Content\cricket\ireland.png" />
+    <Content Include="Content\cricket\netherlands.png" />
+    <Content Include="Content\cricket\new-zealand.png" />
+    <Content Include="Content\cricket\pakistan.png" />
+    <Content Include="Content\cricket\south-africa.png" />
+    <Content Include="Content\cricket\sri-lanka.png" />
+    <Content Include="Content\cricket\West-Indies.jpg" />
+    <Content Include="Content\cricket\westindies.jpg" />
+    <Content Include="Content\cricket\zimbabwe.png" />
+    <Content Include="Content\detailsx.css" />
+    <Content Include="Content\EPL\314837-swansea-city-fc-4-logo.png" />
+    <Content Include="Content\EPL\arsenal-logo-vector.png" />
+    <Content Include="Content\EPL\aston-villa-logo.png" />
+    <Content Include="Content\EPL\chelsea-logo-vector.png" />
+    <Content Include="Content\EPL\english-premier-league-logo-vector.png" />
+    <Content Include="Content\EPL\everton-fc-logo-vector.jpg" />
+    <Content Include="Content\EPL\fulham-fc-logo.png" />
+    <Content Include="Content\EPL\liverpool-logo-vector.png" />
+    <Content Include="Content\EPL\manchester-city-logo-vector.png" />
+    <Content Include="Content\EPL\manchester-united-logo-vector.png" />
+    <Content Include="Content\EPL\newcastle-united-logo-preview.png" />
+    <Content Include="Content\EPL\norwich-logo-vector.png" />
+    <Content Include="Content\EPL\premier-league-logo-vector.png" />
+    <Content Include="Content\EPL\queens-park-rangers-fc-logo-1AA443F1F1-seeklogo.com.png" />
+    <Content Include="Content\EPL\reading-fc-logo-vector.png" />
+    <Content Include="Content\EPL\southampton-f.c-logo-vector.png" />
+    <Content Include="Content\EPL\stoke-city-fc-vector.gif" />
+    <Content Include="Content\EPL\sunderland-afc-logo.png" />
+    <Content Include="Content\EPL\tottenham-hotspur-fc-logo-vector.jpg" />
+    <Content Include="Content\EPL\west-brom-logo-vector.png" />
+    <Content Include="Content\EPL\west-ham-united-logo-vector.png" />
+    <Content Include="Content\EPL\Wigan_Athletic-logo-9768D66726-seeklogo.com.png" />
+    <Content Include="Content\eventdetails.css" />
+    <Content Include="Content\eventlist.css" />
+    <Content Include="Content\events.css" />
+    <Content Include="Content\football\argentina.png" />
+    <Content Include="Content\football\belgium.png" />
+    <Content Include="Content\football\brazil.png" />
+    <Content Include="Content\football\colombia.png" />
+    <Content Include="Content\football\croatia.png" />
+    <Content Include="Content\football\denmark.png" />
+    <Content Include="Content\football\england.png" />
+    <Content Include="Content\football\france.png" />
+    <Content Include="Content\football\germany.png" />
+    <Content Include="Content\football\italy.png" />
+    <Content Include="Content\football\mexico.png" />
+    <Content Include="Content\football\netherlands.png" />
+    <Content Include="Content\football\portugal.png" />
+    <Content Include="Content\football\spain.png" />
+    <Content Include="Content\football\switzerland.png" />
+    <Content Include="Content\football\uruguay.png" />
+    <Content Include="Content\football\usa.png" />
+    <Content Include="Content\footer.css" />
+    <Content Include="Content\headerDesign.css" />
+    <Content Include="Content\indexslide.css" />
+    <Content Include="Content\Laliga\123_-getafe-primary-.jpeg" />
+    <Content Include="Content\Laliga\1444__atletico_madrid-primary-2017.png" />
+    <Content Include="Content\Laliga\179_-racing_santander-primary-.png" />
+    <Content Include="Content\Laliga\191_-valencia-primary-.jpeg" />
+    <Content Include="Content\Laliga\259_-malaga-primary-.jpeg" />
+    <Content Include="Content\Laliga\279_-real_valladollid-primary-.jpeg" />
+    <Content Include="Content\Laliga\361_-rayo_vallecano-primary-.jpeg" />
+    <Content Include="Content\Laliga\417_-real_sociedad-primary-.jpeg" />
+    <Content Include="Content\Laliga\483_-sporting_gijon-primary-.jpeg" />
+    <Content Include="Content\Laliga\530_-sevilla-primary-.png" />
+    <Content Include="Content\Laliga\567_-levante-primary-.jpeg" />
+    <Content Include="Content\Laliga\568_-real_zaragoza-primary-.jpeg" />
+    <Content Include="Content\Laliga\632_-granada-primary-.jpeg" />
+    <Content Include="Content\Laliga\643_-real_madrid-primary-.jpeg" />
+    <Content Include="Content\Laliga\665_-real_mallorca-primary-.jpeg" />
+    <Content Include="Content\Laliga\679_-villarreal-primary-.jpeg" />
+    <Content Include="Content\Laliga\7308_la_liga_-primary-2015.png" />
+    <Content Include="Content\Laliga\748_-celta_vigo-primary-.jpeg" />
+    <Content Include="Content\Laliga\763_-osasuna-primary-.jpeg" />
+    <Content Include="Content\Laliga\894_-athletic_bilbao-primary-.jpeg" />
+    <Content Include="Content\Laliga\954_-fc_barcelona-primary-.jpeg" />
+    <Content Include="Content\Laliga\957_-deportivo_la_coruna-primary-.jpeg" />
+    <Content Include="Content\Laliga\atletico-de-madrid.png" />
+    <Content Include="Content\Laliga\barcelona.png" />
+    <Content Include="Content\Laliga\real-madrid.png" />
+    <Content Include="Content\login.css" />
+    <Content Include="Content\logo\a.jpg" />
+    <Content Include="Content\logo\badminton.png" />
+    <Content Include="Content\logo\badminton210514007.jpg" />
+    <Content Include="Content\logo\basketball.png" />
+    <Content Include="Content\logo\coronavirus.png" />
+    <Content Include="Content\logo\cricket.png" />
+    <Content Include="Content\logo\cricket210632395.jpg" />
+    <Content Include="Content\logo\d.jpg" />
+    <Content Include="Content\logo\delete.png" />
+    <Content Include="Content\logo\e.jpg" />
+    <Content Include="Content\logo\edit.png" />
+    <Content Include="Content\logo\f.jpg" />
+    <Content Include="Content\logo\facebook.png" />
+    <Content Include="Content\logo\football.png" />
+    <Content Include="Content\logo\footballlogo.jpg" />
+    <Content Include="Content\logo\ground.jpg" />
+    <Content Include="Content\logo\instagram.png" />
+    <Content Include="Content\logo\linkedin.png" />
+    <Content Include="Content\logo\loupe %281%29.png" />
+    <Content Include="Content\logo\loupe.png" />
+    <Content Include="Content\logo\man %281%29.png" />
+    <Content Include="Content\logo\man %282%29.png" />
+    <Content Include="Content\logo\man.png" />
+    <Content Include="Content\logo\messenger.png" />
+    <Content Include="Content\logo\noucamp.jpg" />
+    <Content Include="Content\logo\o.jpg" />
+    <Content Include="Content\logo\OIP.jpeg" />
+    <Content Include="Content\logo\p.jpg" />
+    <Content Include="Content\logo\pencil.png" />
+    <Content Include="Content\logo\premium.png" />
+    <Content Include="Content\logo\save.png" />
+    <Content Include="Content\logo\sports %281%29.png" />
+    <Content Include="Content\logo\sports.png" />
+    <Content Include="Content\logo\stadium.jpg" />
+    <Content Include="Content\logo\stadiumm.jpg" />
+    <Content Include="Content\logo\tennis210724528.PNG" />
+    <Content Include="Content\logo\trophy %281%29.png" />
+    <Content Include="Content\logo\trophy %282%29.png" />
+    <Content Include="Content\logo\trophy.png" />
+    <Content Include="Content\logo\twitter.png" />
+    <Content Include="Content\logo\user.png" />
+    <Content Include="Content\logo\youtube.png" />
+    <Content Include="Content\news.css" />
+    <Content Include="Content\newscreate.css" />
+    <Content Include="Content\newsdetails.css" />
+    <Content Include="Content\playerprofile.css" />
+    <Content Include="Content\Players\Argentina\Alejandro Darío Gómez.jpeg" />
+    <Content Include="Content\Players\Argentina\Cristian Romero.png" />
+    <Content Include="Content\Players\Argentina\Emiliano Martínez.jpg" />
+    <Content Include="Content\Players\Argentina\Guido Rodríguez.jpg" />
+    <Content Include="Content\Players\Argentina\Joaquin Correa.jpg" />
+    <Content Include="Content\Players\Argentina\Lautaro Martínez.jpg" />
+    <Content Include="Content\Players\Argentina\Leandro Paredes.jpg" />
+    <Content Include="Content\Players\Argentina\Lionel Messi.jpg" />
+    <Content Include="Content\Players\Argentina\Lucas Martínez Quarta.jpg" />
+    <Content Include="Content\Players\Argentina\Nahuel Molina.jpg" />
+    <Content Include="Content\Players\Argentina\Nicolás González.jpg" />
+    <Content Include="Content\Players\Argentina\Nicolás Otamendi.jpg" />
+    <Content Include="Content\Players\Argentina\Paulo Dybala.jpg" />
+    <Content Include="Content\Players\Argentina\Rodrigo De Paul.jpg" />
+    <Content Include="Content\Players\Argentina\Sergio Agüero.jpg" />
+    <Content Include="Content\Players\Argentina\Ángel Di María.jpg" />
+    <Content Include="Content\Players\Australia\aaron-finch.jpeg" />
+    <Content Include="Content\Players\Australia\adam-zampa.jpeg" />
+    <Content Include="Content\Players\Australia\alex-carey.jpeg" />
+    <Content Include="Content\Players\Australia\andrew-tye.jpeg" />
+    <Content Include="Content\Players\Australia\ashton-agar.jpeg" />
+    <Content Include="Content\Players\Australia\cameron-green.jpeg" />
+    <Content Include="Content\Players\Australia\david-warner.jpeg" />
+    <Content Include="Content\Players\Australia\glenn-maxwell.jpeg" />
+    <Content Include="Content\Players\Australia\joe-burns.jpeg" />
+    <Content Include="Content\Players\Australia\josh-hazlewood.jpeg" />
+    <Content Include="Content\Players\Australia\marcus-stoinis.jpeg" />
+    <Content Include="Content\Players\Australia\marnus-labuschagne.jpeg" />
+    <Content Include="Content\Players\Australia\matthew-wade.jpeg" />
+    <Content Include="Content\Players\Australia\michael-neser.jpeg" />
+    <Content Include="Content\Players\Australia\mitchell-starc.jpeg" />
+    <Content Include="Content\Players\Australia\mitchell-swepson.jpeg" />
+    <Content Include="Content\Players\Australia\moises-henriques.jpeg" />
+    <Content Include="Content\Players\Australia\nathan-lyon.jpeg" />
+    <Content Include="Content\Players\Australia\pat-cummins.jpeg" />
+    <Content Include="Content\Players\Australia\sean-abbott.jpeg" />
+    <Content Include="Content\Players\Australia\steven-smith.jpeg" />
+    <Content Include="Content\Players\Australia\tim-paine.jpeg" />
+    <Content Include="Content\Players\Australia\travis-head.jpeg" />
+    <Content Include="Content\Players\Australia\will-pucovski.jpeg" />
+    <Content Include="Content\Players\Bangladesh\abu-jayed.jpeg" />
+    <Content Include="Content\Players\Bangladesh\liton-das.jpeg" />
+    <Content Include="Content\Players\Bangladesh\mahmudullah.jpeg" />
+    <Content Include="Content\Players\Bangladesh\mashrafe-mortaza.jpeg" />
+    <Content Include="Content\Players\Bangladesh\mehidy-hasan.jpeg" />
+    <Content Include="Content\Players\Bangladesh\mohammad-mithun.jpeg" />
+    <Content Include="Content\Players\Bangladesh\mohammad-saifuddin.jpeg" />
+    <Content Include="Content\Players\Bangladesh\mosaddek-hossain.jpeg" />
+    <Content Include="Content\Players\Bangladesh\mushfiqur-rahim.jpeg" />
+    <Content Include="Content\Players\Bangladesh\mustafizur-rahman.jpeg" />
+    <Content Include="Content\Players\Bangladesh\rubel-hossain.jpeg" />
+    <Content Include="Content\Players\Bangladesh\sabbir-rahman.jpeg" />
+    <Content Include="Content\Players\Bangladesh\shakib-al-hasan.jpeg" />
+    <Content Include="Content\Players\Bangladesh\soumya-sarkar.jpeg" />
+    <Content Include="Content\Players\Bangladesh\tamim-iqbal.jpeg" />
+    <Content Include="Content\Players\England\adil-rashid.jpeg" />
+    <Content Include="Content\Players\England\ben-stokes.jpeg" />
+    <Content Include="Content\Players\England\chris-jordan.jpeg" />
+    <Content Include="Content\Players\England\chris-woakes.jpeg" />
+    <Content Include="Content\Players\England\dawid-malan.jpeg" />
+    <Content Include="Content\Players\England\eoin-morgan.jpeg" />
+    <Content Include="Content\Players\England\jason-roy.jpeg" />
+    <Content Include="Content\Players\England\joe-root.jpeg" />
+    <Content Include="Content\Players\England\jofra-archer.jpeg" />
+    <Content Include="Content\Players\England\jonny-bairstow.jpeg" />
+    <Content Include="Content\Players\England\jos-buttler.jpeg" />
+    <Content Include="Content\Players\England\liam-livingstone.jpeg" />
+    <Content Include="Content\Players\England\mark-wood.jpeg" />
+    <Content Include="Content\Players\England\moeen-ali.jpeg" />
+    <Content Include="Content\Players\England\olly-stone.jpeg" />
+    <Content Include="Content\Players\England\tom-curran.jpeg" />
+    <Content Include="Content\Players\football-player.png" />
+    <Content Include="Content\Players\Germany\Antonio Rüdiger.jpg" />
+    <Content Include="Content\Players\Germany\Emre Can.jpg" />
+    <Content Include="Content\Players\Germany\Jamal Musiala.jpg" />
+    <Content Include="Content\Players\Germany\Joshua Kimmich.jpg" />
+    <Content Include="Content\Players\Germany\Julian Draxler.jpg" />
+    <Content Include="Content\Players\Germany\Kai Havertz.jpg" />
+    <Content Include="Content\Players\Germany\Leon Goretzka.jpg" />
+    <Content Include="Content\Players\Germany\Leroy Sané.jpg" />
+    <Content Include="Content\Players\Germany\Manuel Neuer.jpg" />
+    <Content Include="Content\Players\Germany\Marc-André ter Stegen.jpg" />
+    <Content Include="Content\Players\Germany\Marco Reus.jpg" />
+    <Content Include="Content\Players\Germany\Mats Hummels.jpg" />
+    <Content Include="Content\Players\Germany\Matthias Ginter.jpg" />
+    <Content Include="Content\Players\Germany\Robin Gosens.jpg" />
+    <Content Include="Content\Players\Germany\Serge Gnabry.jpg" />
+    <Content Include="Content\Players\Germany\Thomas Müller.jpg" />
+    <Content Include="Content\Players\Germany\Timo Werner.jpg" />
+    <Content Include="Content\Players\Germany\Toni Kroos.jpg" />
+    <Content Include="Content\Players\Germany\İlkay Gündoğan.jpg" />
+    <Content Include="Content\Players\India\ajinkya-rahane.jpeg" />
+    <Content Include="Content\Players\India\cheteshwar-pujara.jpeg" />
+    <Content Include="Content\Players\India\hardik-pandya.jpeg" />
+    <Content Include="Content\Players\India\jasprit-bumrah.jpeg" />
+    <Content Include="Content\Players\India\kl-rahul.jpeg" />
+    <Content Include="Content\Players\India\kuldeep-yadav.jpeg" />
+    <Content Include="Content\Players\India\manish-pandey.jpeg" />
+    <Content Include="Content\Players\India\mohammed-shami.jpeg" />
+    <Content Include="Content\Players\India\mohammed-siraj.jpeg" />
+    <Content Include="Content\Players\India\ravichandran-ashwin.jpeg" />
+    <Content Include="Content\Players\India\ravindra-jadeja.jpeg" />
+    <Content Include="Content\Players\India\rohit-sharma.jpeg" />
+    <Content Include="Content\Players\India\sanju-samson.jpeg" />
+    <Content Include="Content\Players\India\shikhar-dhawan.jpeg" />
+    <Content Include="Content\Players\India\shubman-gill.jpeg" />
+    <Content Include="Content\Players\India\umesh-yadav.jpeg" />
+    <Content Include="Content\Players\India\virat-kohli.jpeg" />
+    <Content Include="Content\Players\India\yuzvendra-chahal.jpeg" />
+    <Content Include="Content\Players\New Zealand\colin-de-grandhomme.jpeg" />
+    <Content Include="Content\Players\New Zealand\colin-munro.jpeg" />
+    <Content Include="Content\Players\New Zealand\henry-nicholls.jpeg" />
+    <Content Include="Content\Players\New Zealand\james-neesham.jpeg" />
+    <Content Include="Content\Players\New Zealand\kane-williamson.jpeg" />
+    <Content Include="Content\Players\New Zealand\lockie-ferguson.jpeg" />
+    <Content Include="Content\Players\New Zealand\martin-guptill.jpeg" />
+    <Content Include="Content\Players\New Zealand\matt-henry.jpeg" />
+    <Content Include="Content\Players\New Zealand\mitchell-santner.jpeg" />
+    <Content Include="Content\Players\New Zealand\ross-taylor.jpeg" />
+    <Content Include="Content\Players\New Zealand\tim-southee.jpeg" />
+    <Content Include="Content\Players\New Zealand\tom-blundell.jpeg" />
+    <Content Include="Content\Players\New Zealand\tom-latham.jpeg" />
+    <Content Include="Content\Players\New Zealand\trent-boult.jpeg" />
+    <Content Include="Content\Players\Pakistan\asif-ali.jpeg" />
+    <Content Include="Content\Players\Pakistan\babar-azam.jpeg" />
+    <Content Include="Content\Players\Pakistan\fakhar-zaman.jpeg" />
+    <Content Include="Content\Players\Pakistan\haris-sohail.jpeg" />
+    <Content Include="Content\Players\Pakistan\hasan-ali.jpeg" />
+    <Content Include="Content\Players\Pakistan\imad-wasim.jpeg" />
+    <Content Include="Content\Players\Pakistan\imam-ul-haq.jpeg" />
+    <Content Include="Content\Players\Pakistan\mohammad-amir.jpeg" />
+    <Content Include="Content\Players\Pakistan\mohammad-hafeez.jpeg" />
+    <Content Include="Content\Players\Pakistan\sarfaraz-ahmed.jpeg" />
+    <Content Include="Content\Players\Pakistan\shaheen-afridi.jpeg" />
+    <Content Include="Content\Players\Pakistan\shoaib-malik.jpeg" />
+    <Content Include="Content\Players\Pakistan\wahab-riaz.jpeg" />
+    <Content Include="Content\Players\portugal\André Silva.jpg" />
+    <Content Include="Content\Players\portugal\Bernardo Silva.jpg" />
+    <Content Include="Content\Players\portugal\Bruno Fernandes.jpg" />
+    <Content Include="Content\Players\portugal\Cristiano Ronaldo.jpg" />
+    <Content Include="Content\Players\portugal\Diogo Jota.jpg" />
+    <Content Include="Content\Players\portugal\Eder.jpg" />
+    <Content Include="Content\Players\portugal\João Félix.jpg" />
+    <Content Include="Content\Players\portugal\João Palhinha.jpg" />
+    <Content Include="Content\Players\portugal\Nuno Mendes.jpg" />
+    <Content Include="Content\Players\portugal\Pepe.jpg" />
+    <Content Include="Content\Players\portugal\Rafa Silva.jpg" />
+    <Content Include="Content\Players\portugal\Raphaël Guerreiro.jpg" />
+    <Content Include="Content\Players\portugal\Renato Sanches.jpg" />
+    <Content Include="Content\Players\portugal\Rui Patrício.jpg" />
+    <Content Include="Content\Players\portugal\Rúben Dias.jpg" />
+    <Content Include="Content\Players\South Africa\aiden-markram.jpeg" />
+    <Content Include="Content\Players\South Africa\andile-phehlukwayo.jpeg" />
+    <Content Include="Content\Players\South Africa\chris-morris.jpeg" />
+    <Content Include="Content\Players\South Africa\david-miller.jpeg" />
+    <Content Include="Content\Players\South Africa\dwaine-pretorius.jpeg" />
+    <Content Include="Content\Players\South Africa\faf-du-plessis.jpeg" />
+    <Content Include="Content\Players\South Africa\imran-tahir.jpeg" />
+    <Content Include="Content\Players\South Africa\jean-paul-duminy.jpeg" />
+    <Content Include="Content\Players\South Africa\kagiso-rabada.jpeg" />
+    <Content Include="Content\Players\South Africa\lungi-ngidi.jpeg" />
+    <Content Include="Content\Players\South Africa\quinton-de-kock.jpeg" />
+    <Content Include="Content\Players\South Africa\rassie-van-der-dussen.jpeg" />
+    <Content Include="Content\Players\South Africa\tabraiz-shamsi.jpeg" />
+    <Content Include="Content\Players\Sri Lanka\angelo-mathews.jpeg" />
+    <Content Include="Content\Players\Sri Lanka\avishka-fernando.jpeg" />
+    <Content Include="Content\Players\Sri Lanka\dhananjaya-de-silva.jpeg" />
+    <Content Include="Content\Players\Sri Lanka\dimuth-karunaratne.jpeg" />
+    <Content Include="Content\Players\Sri Lanka\isuru-udana.jpeg" />
+    <Content Include="Content\Players\Sri Lanka\jeevan-mendis.jpeg" />
+    <Content Include="Content\Players\Sri Lanka\jeffrey-vandersay.jpeg" />
+    <Content Include="Content\Players\Sri Lanka\kusal-mendis.jpeg" />
+    <Content Include="Content\Players\Sri Lanka\kusal-perera.jpeg" />
+    <Content Include="Content\Players\Sri Lanka\lahiru-thirimanne.jpeg" />
+    <Content Include="Content\Players\Sri Lanka\lasith-malinga.jpeg" />
+    <Content Include="Content\Players\Sri Lanka\milinda-siriwardana.jpeg" />
+    <Content Include="Content\Players\Sri Lanka\nuwan-pradeep.jpeg" />
+    <Content Include="Content\Players\Sri Lanka\suranga-lakmal.jpeg" />
+    <Content Include="Content\Players\Sri Lanka\thisara-perera.jpeg" />
+    <Content Include="Content\Players\West Indies\andre-russell.jpeg" />
+    <Content Include="Content\Players\West Indies\carlos-brathwaite.jpeg" />
+    <Content Include="Content\Players\West Indies\chris-gayle.jpeg" />
+    <Content Include="Content\Players\West Indies\darren-bravo.jpeg" />
+    <Content Include="Content\Players\West Indies\evin-lewis.jpeg" />
+    <Content Include="Content\Players\West Indies\fabian-allen.jpeg" />
+    <Content Include="Content\Players\West Indies\jason-holder.jpeg" />
+    <Content Include="Content\Players\West Indies\kemar-roach.jpeg" />
+    <Content Include="Content\Players\West Indies\oshane-thomas.jpeg" />
+    <Content Include="Content\Players\West Indies\shai-hope.jpeg" />
+    <Content Include="Content\Players\West Indies\shannon-gabriel.jpeg" />
+    <Content Include="Content\Players\West Indies\sheldon-cottrell.jpeg" />
+    <Content Include="Content\Players\West Indies\shimron-hetmyer.jpeg" />
+    <Content Include="Content\premium.css" />
+    <Content Include="Content\profile.css" />
+    <Content Include="Content\register.css" />
+    <Content Include="Content\search.css" />
+    <Content Include="Content\Serie A\105_-lecce-primary-.jpeg" />
+    <Content Include="Content\Serie A\116_-genoa-primary-.jpeg" />
+    <Content Include="Content\Serie A\120_-parma-primary-.jpeg" />
+    <Content Include="Content\Serie A\131_-ac_milan-primary-.jpeg" />
+    <Content Include="Content\Serie A\193_-napoli-primary-.jpeg" />
+    <Content Include="Content\Serie A\200_-atalanta-primary-.jpeg" />
+    <Content Include="Content\Serie A\238_-fiorentina-primary-.jpeg" />
+    <Content Include="Content\Serie A\257_-pescara-primary-.jpeg" />
+    <Content Include="Content\Serie A\294_-ac_siena-primary-.jpeg" />
+    <Content Include="Content\Serie A\317_-sampdoria-primary-.jpeg" />
+    <Content Include="Content\Serie A\324_-as_bari-primary-.jpeg" />
+    <Content Include="Content\Serie A\325_-torino_fc-primary-.jpeg" />
+    <Content Include="Content\Serie A\367_milan-internazionale_milan-primary-.jpeg" />
+    <Content Include="Content\Serie A\4488__juventus-primary-2017.png" />
+    <Content Include="Content\Serie A\461_-udinese-primary-.jpeg" />
+    <Content Include="Content\Serie A\479_-hellas_verona-primary-.jpeg" />
+    <Content Include="Content\Serie A\515_-palermo-primary-.jpeg" />
+    <Content Include="Content\Serie A\520_-as_roma-primary-.jpeg" />
+    <Content Include="Content\Serie A\5375_us_sassuolo-primary-0.jpeg" />
+    <Content Include="Content\Serie A\663_-serie_a-primary-2010.jpeg" />
+    <Content Include="Content\Serie A\694_-catania-primary-.jpeg" />
+    <Content Include="Content\Serie A\756_-livorno-primary-.jpeg" />
+    <Content Include="Content\Serie A\758_-bologna-primary-.jpeg" />
+    <Content Include="Content\Serie A\782_-cagliari-primary-.jpeg" />
+    <Content Include="Content\Serie A\787_-cheivo_-primary-.jpeg" />
+    <Content Include="Content\Serie A\797_-lazio-primary-.jpeg" />
+    <Content Include="Content\Serie A\889_-cesena-primary-.jpeg" />
+    <Content Include="Content\signup.css" />
+    <Content Include="Content\signupregister.css" />
+    <Content Include="Content\sportslist.css" />
+    <Content Include="Content\sports\badminton210514007.jpg" />
+    <Content Include="Content\sports\baseball212440895.jpg" />
+    <Content Include="Content\sports\basketball210741962.jpg" />
+    <Content Include="Content\sports\cricket210632395.jpg" />
+    <Content Include="Content\sports\f.jpg" />
+    <Content Include="Content\sports\fo.jpg" />
+    <Content Include="Content\sports\football215547944.jpg" />
+    <Content Include="Content\sports\gr.jpg" />
+    <Content Include="Content\sports\hockey212010179.jpg" />
+    <Content Include="Content\sports\rugby212235418.jpg" />
+    <Content Include="Content\sports\table tennis212134441.jpg" />
+    <Content Include="Content\sports\tennis210724528.PNG" />
+    <Content Include="Content\sports\volleyball211829417.jpg" />
+    <Content Include="Content\team.css" />
+    <Content Include="Content\teamdetails.css" />
+    <Content Include="Content\teamtable.css" />
+    <Content Include="Content\tournament.css" />
+    <Content Include="Content\tournament\bpl.png" />
+    <Content Include="Content\tournament\cricket.png" />
+    <Content Include="Content\tournament\cup.png" />
+    <Content Include="Content\tournament\epl.png" />
+    <Content Include="Content\tournament\football.png" />
+    <Content Include="Content\tournament\icc.png" />
+    <Content Include="Content\tournament\ipl.png" />
+    <Content Include="Content\tournament\laliga.png" />
+    <Content Include="Content\tournament\seriaa.png" />
+    <Content Include="Content\tournament\t20.png" />
+    <Content Include="Content\tournament\trophy.png" />
+    <Content Include="Content\tournament\uefa-champions-league-vector.jpg" />
+    <Content Include="Content\tournament\world-cup.png" />
+    <Content Include="Content\venue.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Models\SoccerDiv.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SoccerDiv.Context.cs</LastGenOutput>
+      <DependentUpon>SoccerDiv.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\SoccerDiv.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SoccerDiv.edmx</DependentUpon>
+      <LastGenOutput>SoccerDiv.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Models\SoccerDiv.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SoccerDiv.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\SoccerDiv.edmx.diagram">
+      <DependentUpon>SoccerDiv.edmx</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\map.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\premiumv.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Sports\Create.cshtml" />
+    <Content Include="Views\Sports\Delete.cshtml" />
+    <Content Include="Views\Sports\Details.cshtml" />
+    <Content Include="Views\Sports\Edit.cshtml" />
+    <Content Include="Views\Sports\Index.cshtml" />
+    <Content Include="Views\Teams\Create.cshtml" />
+    <Content Include="Views\Teams\Delete.cshtml" />
+    <Content Include="Views\Teams\Details.cshtml" />
+    <Content Include="Views\Teams\Edit.cshtml" />
+    <Content Include="Views\Teams\Index.cshtml" />
+    <Content Include="Views\Tournamnets\Create.cshtml" />
+    <Content Include="Views\Tournamnets\Delete.cshtml" />
+    <Content Include="Views\Tournamnets\Details.cshtml" />
+    <Content Include="Views\Tournamnets\Edit.cshtml" />
+    <Content Include="Views\Tournamnets\Index.cshtml" />
+    <Content Include="Views\Venues\Create.cshtml" />
+    <Content Include="Views\Venues\Delete.cshtml" />
+    <Content Include="Views\Venues\Details.cshtml" />
+    <Content Include="Views\Venues\Edit.cshtml" />
+    <Content Include="Views\Venues\Index.cshtml" />
+    <Content Include="Views\Admins\Create.cshtml" />
+    <Content Include="Views\Admins\Delete.cshtml" />
+    <Content Include="Views\Admins\Details.cshtml" />
+    <Content Include="Views\Admins\Edit.cshtml" />
+    <Content Include="Views\Admins\Index.cshtml" />
+    <Content Include="Views\Coaches\Create.cshtml" />
+    <Content Include="Views\Coaches\Delete.cshtml" />
+    <Content Include="Views\Coaches\Details.cshtml" />
+    <Content Include="Views\Coaches\Edit.cshtml" />
+    <Content Include="Views\Coaches\Index.cshtml" />
+    <Content Include="Views\Contacts\Create.cshtml" />
+    <Content Include="Views\Contacts\Delete.cshtml" />
+    <Content Include="Views\Contacts\Details.cshtml" />
+    <Content Include="Views\Contacts\Edit.cshtml" />
+    <Content Include="Views\Contacts\Index.cshtml" />
+    <Content Include="Views\Customers\Create.cshtml" />
+    <Content Include="Views\Customers\Delete.cshtml" />
+    <Content Include="Views\Customers\Details.cshtml" />
+    <Content Include="Views\Customers\Edit.cshtml" />
+    <Content Include="Views\Customers\Index.cshtml" />
+    <Content Include="Views\Events\Create.cshtml" />
+    <Content Include="Views\Events\Delete.cshtml" />
+    <Content Include="Views\Events\Details.cshtml" />
+    <Content Include="Views\Events\Edit.cshtml" />
+    <Content Include="Views\Events\Index.cshtml" />
+    <Content Include="Views\News\Create.cshtml" />
+    <Content Include="Views\News\Delete.cshtml" />
+    <Content Include="Views\News\Details.cshtml" />
+    <Content Include="Views\News\Edit.cshtml" />
+    <Content Include="Views\News\Index.cshtml" />
+    <Content Include="Views\Players\Create.cshtml" />
+    <Content Include="Views\Players\Delete.cshtml" />
+    <Content Include="Views\Players\Details.cshtml" />
+    <Content Include="Views\Players\Edit.cshtml" />
+    <Content Include="Views\Players\Index.cshtml" />
+    <Content Include="Views\Home\Privacy.cshtml" />
+    <Content Include="Views\Admins\SignUp.cshtml" />
+    <Content Include="Views\Admins\AdminList.cshtml" />
+    <Content Include="Views\Admins\AdminView.cshtml" />
+    <Content Include="Views\Admins\AdminProfile.cshtml" />
+    <Content Include="Views\Admins\Login.cshtml" />
+    <Content Include="Views\Customers\CustomerList.cshtml" />
+    <Content Include="Views\Customers\SignUp.cshtml" />
+    <Content Include="Views\Customers\Login.cshtml" />
+    <Content Include="Views\Customers\CustomerProfile.cshtml" />
+    <Content Include="Views\News\NewsList.cshtml" />
+    <Content Include="Views\News\News.cshtml" />
+    <Content Include="Views\News\PostNews.cshtml" />
+    <Content Include="Views\Players\AddPlayer.cshtml" />
+    <Content Include="Views\Players\PlayerList.cshtml" />
+    <Content Include="Views\Sports\AddSports.cshtml" />
+    <Content Include="Views\Sports\SportsView.cshtml" />
+    <Content Include="Views\Sports\OtherSports.cshtml" />
+    <Content Include="Views\Teams\AddTeam.cshtml" />
+    <Content Include="Views\Teams\TeamView.cshtml" />
+    <Content Include="Views\Tournamnets\AddTournament.cshtml" />
+    <Content Include="Views\Tournamnets\Tournament.cshtml" />
+    <Content Include="Views\Venues\AddVenue.cshtml" />
+    <Content Include="Views\Venues\Venue.cshtml" />
+    <Content Include="Views\Coaches\AddCoach.cshtml" />
+    <Content Include="Views\Coaches\CoachesList.cshtml" />
+    <Content Include="Views\Contacts\Contact.cshtml" />
+    <Content Include="Views\Contacts\ConatctList.cshtml" />
+    <Content Include="Views\Events\EventList.cshtml" />
+    <Content Include="Views\Events\AddEvents.cshtml" />
+    <Content Include="Views\Teams\Football.cshtml" />
+    <Content Include="Views\Teams\Cricket.cshtml" />
+    <Content Include="Views\Teams\Tennis.cshtml" />
+    <Content Include="Views\Teams\Basketball.cshtml" />
+    <Content Include="Views\Teams\Volleyball.cshtml" />
+    <Content Include="Views\Teams\Hockey.cshtml" />
+    <Content Include="Views\Teams\TableTennis.cshtml" />
+    <Content Include="Views\Teams\Badminton.cshtml" />
+    <Content Include="Views\Teams\Baseball.cshtml" />
+    <Content Include="Views\Teams\Rugby.cshtml" />
+    <Content Include="Views\Players\NewZealand.cshtml" />
+    <Content Include="Views\Players\India.cshtml" />
+    <Content Include="Views\Players\Australia.cshtml" />
+    <Content Include="Views\Players\England.cshtml" />
+    <Content Include="Views\Players\Pakistan.cshtml" />
+    <Content Include="Views\Players\SouthAfrica.cshtml" />
+    <Content Include="Views\Players\WestIndies.cshtml" />
+    <Content Include="Views\Players\Srilanka.cshtml" />
+    <Content Include="Views\Players\Bangladesh.cshtml" />
+    <Content Include="Views\Players\Zimbabwe.cshtml" />
+    <Content Include="Views\Players\Afghanistan.cshtml" />
+    <Content Include="Views\Players\Ireland.cshtml" />
+    <Content Include="Views\Players\Netherland.cshtml" />
+    <Content Include="Views\Players\Belgium.cshtml" />
+    <Content Include="Views\Players\Brazil.cshtml" />
+    <Content Include="Views\Players\France.cshtml" />
+    <Content Include="Views\Players\Italy.cshtml" />
+    <Content Include="Views\Players\Argentina.cshtml" />
+    <Content Include="Views\Players\Portugal.cshtml" />
+    <Content Include="Views\Players\Spain.cshtml" />
+    <Content Include="Views\Players\Mexico.cshtml" />
+    <Content Include="Views\Players\Denmark.cshtml" />
+    <Content Include="Views\Players\Netherlands.cshtml" />
+    <Content Include="Views\Players\Uruguay.cshtml" />
+    <Content Include="Views\Players\USA.cshtml" />
+    <Content Include="Views\Players\Germany.cshtml" />
+    <Content Include="Views\Players\Switzerland.cshtml" />
+    <Content Include="Views\Players\Colombia.cshtml" />
+    <Content Include="Views\Players\Croatia.cshtml" />
+    <Content Include="Views\Players\Arsenal.cshtml" />
+    <Content Include="Views\Players\AstonVilla.cshtml" />
+    <Content Include="Views\Players\Chelsea.cshtml" />
+    <Content Include="Views\Players\ManchesterCity.cshtml" />
+    <Content Include="Views\Players\ManchesterUnited.cshtml" />
+    <Content Include="Views\Players\TottenhamHotspur.cshtml" />
+    <Content Include="Views\Players\NewcastleUnited.cshtml" />
+    <Content Include="Views\Players\WestHam.cshtml" />
+    <Content Include="Views\Players\Southampton.cshtml" />
+    <Content Include="Views\Players\Everton.cshtml" />
+    <Content Include="Views\Players\Barcelona.cshtml" />
+    <Content Include="Views\Players\RealMadrid.cshtml" />
+    <Content Include="Views\Players\AtléticoMadrid.cshtml" />
+    <Content Include="Views\Players\RealBetis.cshtml" />
+    <Content Include="Views\Players\Sevilla.cshtml" />
+    <Content Include="Views\Players\Valencia.cshtml" />
+    <Content Include="Views\Players\Levante.cshtml" />
+    <Content Include="Views\Players\CeltaVigo.cshtml" />
+    <Content Include="Views\Players\Osasuna.cshtml" />
+    <Content Include="Views\Players\AtleticoBilbao.cshtml" />
+    <Content Include="Views\Players\Granada.cshtml" />
+    <Content Include="Views\Players\RealMallorca.cshtml" />
+    <Content Include="Views\Players\RealSociedad.cshtml" />
+    <Content Include="Views\Players\RealValladollid.cshtml" />
+    <Content Include="Views\Events\Football.cshtml" />
+    <Content Include="Views\Events\Cricket.cshtml" />
+    <Content Include="Views\Events\Tennis.cshtml" />
+    <Content Include="Views\Events\Basketball.cshtml" />
+    <Content Include="Views\Events\Volleyball.cshtml" />
+    <Content Include="Views\Events\Hockey.cshtml" />
+    <Content Include="Views\Events\TableTennis.cshtml" />
+    <Content Include="Views\Events\Badminton.cshtml" />
+    <Content Include="Views\Events\Baseball.cshtml" />
+    <Content Include="Views\Events\Rugby.cshtml" />
+    <Content Include="Views\Events\Premium.cshtml" />
+    <Content Include="Views\Events\sort.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="AdminImage\" />
+    <Folder Include="App_Data\" />
+    <Folder Include="CoachImage\" />
+    <Folder Include="CustomerImage\" />
+    <Folder Include="NewsImage\" />
+    <Folder Include="SportsImage\" />
+    <Folder Include="TeamImage\" />
+    <Folder Include="TournamentImage\" />
+    <Folder Include="VenueImage\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>13279</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44322/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

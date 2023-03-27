@@ -1,0 +1,120 @@
+﻿@model SoccerDiv.Models.Player
+
+@{
+    ViewBag.Title = "AddPlayer";
+    var success = ViewBag.Success;
+    var failed = ViewBag.Failed;
+}
+
+<link href="~/Content/addplayer.css" rel="stylesheet" />
+<link href="~/Content/adminbutton.css" rel="stylesheet" />
+
+<div class="containerX">
+    <a class="card1" href="@Url.Action("AdminView", "Admins")">
+        <h3>Back To Home</h3>
+        <div class="go-corner">
+            <div class="go-arrow">
+                →
+            </div>
+        </div>
+    </a>
+    <a class="card1" href="@Url.Action("PlayerList", "Players")">
+        <h3>See All players</h3>
+        <div class="go-corner">
+            <div class="go-arrow">
+                →
+            </div>
+        </div>
+    </a>
+</div>
+
+
+
+@using (Html.BeginForm("AddPlayer", "Players", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+
+    <div class="signup__container">
+        <div class="container__child signup__thumbnail">
+            <div class="thumbnail__content text-center">
+                <h1 class="heading--primary">Welcome to MaxSoccer</h1>
+                <h2 class="heading--secondary">Join a new Player</h2>
+                @if (success != null)
+                {
+                    <h2 style="color:#85F12B;">
+                        @success
+                    </h2>
+                }
+                else
+                {
+                    <h2 style="color:#85F12B;">
+                        @failed
+                    </h2>
+                }
+            </div>
+        </div>
+        <div class="container__child signup__form">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="form-group">
+                <label>Sports</label>
+                @Html.DropDownList("Sports_ID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Sports_ID, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                <label>Team</label>
+                @Html.DropDownList("Team_ID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Team_ID, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                <label>Player name</label>
+                @Html.EditorFor(model => model.Player_Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Player_Name, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label>Player Age</label>
+                @Html.EditorFor(model => model.Player_Age, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Player_Age, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label>Nationality</label>
+                @Html.EditorFor(model => model.Player_Nationality, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Player_Nationality, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label>Position</label>
+                @Html.EditorFor(model => model.Player_Position, new { htmlAttributes = new { @class = "form-control", @placeholder = "position" } })
+                @Html.ValidationMessageFor(model => model.Player_Position, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label>Player Rating</label>
+                @Html.EditorFor(model => model.Player_Rating, new { htmlAttributes = new { @class = "form-control", @placeholder = "0" } })
+                @Html.ValidationMessageFor(model => model.Player_Rating, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label>Player Ranking</label>
+                @Html.EditorFor(model => model.Player_Ranking, new { htmlAttributes = new { @class = "form-control", @placeholder = "0" } })
+                @Html.ValidationMessageFor(model => model.Player_Ranking, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label>Player Photo</label>
+                <input type="file" name="PlayerImageFile" required />
+            </div>
+            <div class="m-t-lg">
+                <ul class="list-inline text-center">
+                    <li>
+                        <input type="submit" value="Add Player" class="btn btn--form" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

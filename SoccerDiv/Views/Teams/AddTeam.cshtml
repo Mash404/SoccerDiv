@@ -1,0 +1,101 @@
+﻿@model SoccerDiv.Models.Team
+
+@{
+    ViewBag.Title = "AddTeam";
+    var success = ViewBag.Success;
+    var failed = ViewBag.Failed;
+}
+
+<link href="~/Content/addteam.css" rel="stylesheet" />
+<link href="~/Content/adminbutton.css" rel="stylesheet" />
+
+
+<div class="containerX">
+    <a class="card1" href="@Url.Action("AdminView", "Admins")">
+        <h3>Back To Home</h3>
+        <div class="go-corner">
+            <div class="go-arrow">
+                →
+            </div>
+        </div>
+    </a>
+    <a class="card1" href="@Url.Action("TeamView", "Teams")">
+        <h3>Show All Teams</h3>
+        <div class="go-corner">
+            <div class="go-arrow">
+                →
+            </div>
+        </div>
+    </a>
+</div>
+
+
+
+@using (Html.BeginForm("AddTeam", "Teams", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="signup__container">
+
+        <div class="container__child signup__form">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <label>Sports</label>
+                @Html.DropDownList("Sports_ID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Sports_ID, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label>Team Name</label>
+                @Html.EditorFor(model => model.Team_Name, new { htmlAttributes = new { @class = "form-control", @placeholder = "Team Name" } })
+                @Html.ValidationMessageFor(model => model.Team_Name, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                @Html.EditorFor(model => model.Team_Description, new { htmlAttributes = new { @class = "form-control", @placeholder = "Description" } })
+                @Html.ValidationMessageFor(model => model.Team_Description, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label>Rating</label>
+                @Html.EditorFor(model => model.Team_Rating, new { htmlAttributes = new { @class = "form-control", @placeholder = "8.1" } })
+                @Html.ValidationMessageFor(model => model.Team_Rating, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label>Ranking</label>
+                @Html.EditorFor(model => model.Team_Ranking, new { htmlAttributes = new { @class = "form-control", @placeholder = "1" } })
+                @Html.ValidationMessageFor(model => model.Team_Ranking, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label>Logo</label>
+                <input type="file" name="TeamImageFile" required />
+            </div>
+            <div class="form-group">
+                <label>Country</label>
+                @Html.EditorFor(model => model.Team_Country, new { htmlAttributes = new { @class = "form-control", @placeholder = "Country" } })
+                @Html.ValidationMessageFor(model => model.Team_Country, "", new { @class = "text-danger" })
+            </div>
+            <div class="m-t-lg">
+                <ul class="list-inline text-center">
+                    <li>
+                        <input type="submit" value="Add Team" class="btn btn--form" />
+                    </li>
+                    @if (success != null)
+                    {
+                        <li style="color:#85F12B;">
+                            @success
+                        </li>
+                    }
+                    else
+                    {
+                        <li style="color:#85F12B;">
+                            @failed
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
